@@ -1,1 +1,69 @@
-Hola
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Index</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #0056b3;
+        }
+        .course {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fff;
+            transition: box-shadow 0.3s;
+        }
+        .course:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .course a {
+            text-decoration: none;
+            color: #0056b3;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .course p {
+            font-size: 1em;
+            color: #666;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to My Courses</h1>
+        <div class="course">
+            <a href="https://carlosdhoyos.github.io/intro_2_aiml_in_atmos_sciences/intro.html">Introduction to AI and Machine Learning in Atmospheric Sciences</a>
+            <p>Explore the fundamentals and advanced topics in AI and ML, applied to atmospheric sciences.</p>
+        </div>
+        <div class="course">
+            <a href="https://carlosdhoyos.github.io/fluid_mechanics/intro.html">Fluid Mechanics</a>
+            <p>A comprehensive course on fluid mechanics principles, covering key concepts and applications.</p>
+        </div>
+        <div class="course">
+            <a href="https://carlosdhoyos.github.io/intro_to_climatology/intro.html">Introduction to Climatology</a>
+            <p>Dive into the science of climate, understanding patterns, processes, and impacts on the environment.</p>
+        </div>
+    </div>
+</body>
+</html>
