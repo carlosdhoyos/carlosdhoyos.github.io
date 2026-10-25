@@ -17,7 +17,8 @@ export const profile = {
     en: "Teaching and research on the atmosphere, climate and the data-driven methods that help us understand them.",
     es: "Docencia e investigación sobre la atmósfera, el clima y los métodos basados en datos que nos ayudan a entenderlos.",
   },
-  email: "", // e.g. "name@unal.edu.co" — the Contact button is hidden while empty
+  // Shown as buttons in Contact; the first one is highlighted and used for the semillero.
+  emails: ["cdhoyos0@unal.edu.co", "choyos@gmail.com"],
   links: [
     // { label: "Google Scholar", href: "https://scholar.google.com/..." },
     { label: "GitHub", href: "https://github.com/carlosdhoyos" },
