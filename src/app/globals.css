@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+:root {
+  --bg: #f7f8fb;
+  --fg: #0d1321;
+  --muted: #5b6475;
+  --line: #dfe3ea;
+  --card: #ffffffcc;
+  --accent: #1d4ed8;
+  --accent-2: #0ea5e9;
+  --stream: rgba(29, 78, 216, 0.28);
+}
+
+:root[data-theme="dark"] {
+  --bg: #070b14;
+  --fg: #e8edf6;
+  --muted: #94a0b4;
+  --line: #1e2738;
+  --card: #0d1424cc;
+  --accent: #60a5fa;
+  --accent-2: #22d3ee;
+  --stream: rgba(125, 211, 252, 0.35);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-card: var(--card);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Language switching: both strings are in the HTML, one is hidden. */
+:root:not([data-lang="es"]) .i18n-es,
+:root[data-lang="es"] .i18n-en {
+  display: none;
+}
+:root:not([data-lang="es"]) .lang-btn-en,
+:root[data-lang="es"] .lang-btn-es {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal[data-shown] {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
