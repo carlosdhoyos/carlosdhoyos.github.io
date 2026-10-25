@@ -111,6 +111,14 @@ export type Publication = {
 // Order doesn't matter; the page sorts by year.
 export const publications: Publication[] = [
   {
+    title: "Orographic controls over convection in an inter-Andean valley in northern South America",
+    authors: "Gómez-Ríos, S., Zuluaga, M.D., Hoyos, C.D.",
+    venue: "Monthly Weather Review",
+    year: 2023,
+    url: "https://doi.org/10.1175/mwr-d-21-0231.1",
+    topics: ["atmosphere"],
+  },
+  {
     title: "Probabilistic discrimination between large-scale environments of intensifying and decaying African easterly waves",
     authors: "Agudelo, P.A., Hoyos, C.D., Curry, J.A., Webster, P.J.",
     venue: "Climate Dynamics",
