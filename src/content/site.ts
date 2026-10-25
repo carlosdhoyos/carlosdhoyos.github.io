@@ -119,14 +119,6 @@ export const publications: Publication[] = [
     topics: ["atmosphere"],
   },
   {
-    title: "Reconstructing the 2015 Salgar flash flood using radar retrievals and a conceptual modeling framework in an ungauged basin",
-    authors: "Velásquez, N., Hoyos, C.D., Vélez, J.I., Zapata, E.",
-    venue: "Hydrology and Earth System Sciences",
-    year: 2020,
-    url: "https://doi.org/10.5194/hess-24-1367-2020",
-    topics: ["hydrology"],
-  },
-  {
     title: "An investigation of the precipitation net effect on the particulate matter concentration in a narrow valley: role of lower-troposphere stability",
     authors: "Roldán-Henao, N., Hoyos, C.D., Herrera-Mejía, L., Isaza, A.",
     venue: "Journal of Applied Meteorology and Climatology",
