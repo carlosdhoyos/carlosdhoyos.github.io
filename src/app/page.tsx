@@ -1,5 +1,7 @@
-import { about, courses, nav, profile, research } from "@/content/site";
+import { about, courses, nav, profile, publications, research, scholarUrl, semillero, type L } from "@/content/site";
 import { LangToggle, ThemeToggle } from "@/components/Controls";
+import { MobileNav } from "@/components/MobileNav";
+import { Publications } from "@/components/Publications";
 import { Reveal } from "@/components/Reveal";
 import { T } from "@/components/T";
 import { WindField } from "@/components/WindField";
@@ -13,6 +15,21 @@ function SectionTitle({ index, children }: { index: string; children: React.Reac
   );
 }
 
+function EmptyState({ title, body }: { title: L; body: L }) {
+  return (
+    <Reveal>
+      <div className="rounded-2xl border border-dashed border-line p-10 text-center">
+        <p className="text-lg font-medium">
+          <T t={title} />
+        </p>
+        <p className="mt-2 text-muted">
+          <T t={body} />
+        </p>
+      </div>
+    </Reveal>
+  );
+}
+
 export default function Home() {
   const year = new Date().getFullYear();
 
@@ -20,10 +37,10 @@ export default function Home() {
     <>
       <header className="fixed inset-x-0 top-0 z-20 border-b border-line/60 bg-bg/70 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-5xl items-center justify-between gap-4 px-4 sm:px-6">
-          <a href="#top" className="font-semibold tracking-tight">
+          <a href="#top" className="whitespace-nowrap font-semibold tracking-tight">
             {profile.name}
           </a>
-          <nav className="hidden items-center gap-6 text-sm text-muted md:flex">
+          <nav className="hidden items-center gap-5 whitespace-nowrap text-sm text-muted lg:flex">
             {nav.map((n) => (
               <a key={n.id} href={`#${n.id}`} className="transition hover:text-fg">
                 <T t={n.label} />
@@ -33,6 +50,7 @@ export default function Home() {
           <div className="flex items-center gap-2">
             <LangToggle />
             <ThemeToggle />
+            <MobileNav items={nav} />
           </div>
         </div>
       </header>
@@ -106,7 +124,7 @@ export default function Home() {
               <T t={{ en: "Research interests", es: "Líneas de investigación" }} />
             </SectionTitle>
           </Reveal>
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {research.map((r, i) => (
               <Reveal key={r.title.en} delay={i * 80}>
                 <article className="group relative h-full overflow-hidden rounded-2xl border border-line bg-card p-6 transition hover:-translate-y-0.5 hover:border-accent/50 hover:shadow-[0_10px_40px_-15px_var(--accent)]">
@@ -124,29 +142,129 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Publications */}
+        <section id="publications" className="mx-auto max-w-5xl px-4 py-24 sm:px-6">
+          <Reveal>
+            <div className="flex flex-wrap items-baseline justify-between gap-4">
+              <SectionTitle index="03">
+                <T t={{ en: "Publications", es: "Publicaciones" }} />
+              </SectionTitle>
+              {scholarUrl && (
+                <a href={scholarUrl} target="_blank" rel="noreferrer" className="mb-10 text-sm font-medium text-accent hover:underline">
+                  <T t={{ en: "Full list", es: "Lista completa" }} /> ↗
+                </a>
+              )}
+            </div>
+          </Reveal>
+          {publications.length === 0 ? (
+            <EmptyState
+              title={{ en: "Publications coming soon.", es: "Publicaciones próximamente." }}
+              body={{
+                en: "A searchable list of articles and papers will be available here.",
+                es: "Aquí estará disponible una lista de artículos que se podrá buscar y filtrar.",
+              }}
+            />
+          ) : (
+            <Reveal>
+              <Publications items={publications} />
+            </Reveal>
+          )}
+        </section>
+
+        {/* Semillero */}
+        <section id="semillero" className="mx-auto max-w-5xl px-4 py-24 sm:px-6">
+          <Reveal>
+            <SectionTitle index="04">
+              <T t={semillero.name} />
+            </SectionTitle>
+          </Reveal>
+          {!semillero.intro.en && !semillero.intro.es ? (
+            <EmptyState
+              title={{ en: "More information coming soon.", es: "Más información próximamente." }}
+              body={{
+                en: "Details about the research seedbed and how to join will be published here.",
+                es: "Aquí se publicarán los detalles del semillero y cómo hacer parte de él.",
+              }}
+            />
+          ) : (
+            <div className="space-y-10">
+              <Reveal>
+                <p className="max-w-3xl text-xl leading-relaxed">
+                  <T t={semillero.intro} />
+                </p>
+                {semillero.lines.length > 0 && (
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {semillero.lines.map((l) => (
+                      <span key={l.en} className="rounded-full border border-line bg-card px-3 py-1 text-sm">
+                        <T t={l} />
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </Reveal>
+              {semillero.activities.length > 0 && (
+                <div className="grid gap-4 sm:grid-cols-3">
+                  {semillero.activities.map((a, i) => (
+                    <Reveal key={a.title.en} delay={i * 80}>
+                      <article className="h-full rounded-2xl border border-line bg-card p-6">
+                        <h3 className="font-semibold">
+                          <T t={a.title} />
+                        </h3>
+                        <p className="mt-2 text-sm text-muted">
+                          <T t={a.body} />
+                        </p>
+                      </article>
+                    </Reveal>
+                  ))}
+                </div>
+              )}
+              {semillero.members.length > 0 && (
+                <Reveal>
+                  <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                    {semillero.members.map((m) => (
+                      <li key={m.name} className="rounded-xl border border-line bg-card px-4 py-3">
+                        <p className="font-medium">{m.name}</p>
+                        <p className="text-sm text-muted">
+                          <T t={m.role} />
+                        </p>
+                      </li>
+                    ))}
+                  </ul>
+                </Reveal>
+              )}
+              {(semillero.join.en || semillero.join.es) && (
+                <Reveal>
+                  <div className="rounded-2xl bg-gradient-to-r from-accent/10 to-accent-2/10 p-6">
+                    <p>
+                      <T t={semillero.join} />
+                    </p>
+                    {profile.email && (
+                      <a href={`mailto:${profile.email}`} className="mt-4 inline-block text-sm font-medium text-accent hover:underline">
+                        {profile.email} →
+                      </a>
+                    )}
+                  </div>
+                </Reveal>
+              )}
+            </div>
+          )}
+        </section>
+
         {/* Teaching */}
         <section id="teaching" className="mx-auto max-w-5xl px-4 py-24 sm:px-6">
           <Reveal>
-            <SectionTitle index="03">
+            <SectionTitle index="05">
               <T t={{ en: "Teaching", es: "Docencia" }} />
             </SectionTitle>
           </Reveal>
           {courses.length === 0 ? (
-            <Reveal>
-              <div className="rounded-2xl border border-dashed border-line p-10 text-center">
-                <p className="text-lg font-medium">
-                  <T t={{ en: "New course materials are on the way.", es: "Nuevos materiales de curso en camino." }} />
-                </p>
-                <p className="mt-2 text-muted">
-                  <T
-                    t={{
-                      en: "Updated versions of my courses will be published here soon.",
-                      es: "Las versiones actualizadas de mis cursos se publicarán aquí pronto.",
-                    }}
-                  />
-                </p>
-              </div>
-            </Reveal>
+            <EmptyState
+              title={{ en: "New course materials are on the way.", es: "Nuevos materiales de curso en camino." }}
+              body={{
+                en: "Updated versions of my courses will be published here soon.",
+                es: "Las versiones actualizadas de mis cursos se publicarán aquí pronto.",
+              }}
+            />
           ) : (
             <div className="grid gap-4 sm:grid-cols-2">
               {courses.map((c, i) => (
@@ -176,7 +294,7 @@ export default function Home() {
         {/* Contact */}
         <section id="contact" className="mx-auto max-w-5xl px-4 py-24 sm:px-6">
           <Reveal>
-            <SectionTitle index="04">
+            <SectionTitle index="06">
               <T t={{ en: "Contact", es: "Contacto" }} />
             </SectionTitle>
             <div className="flex flex-wrap gap-3">

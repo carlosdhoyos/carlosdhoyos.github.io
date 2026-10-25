@@ -27,6 +27,8 @@ export const profile = {
 export const nav: { id: string; label: L }[] = [
   { id: "about", label: { en: "About", es: "Perfil" } },
   { id: "research", label: { en: "Research", es: "Investigación" } },
+  { id: "publications", label: { en: "Publications", es: "Publicaciones" } },
+  { id: "semillero", label: { en: "Research group", es: "Semillero" } },
   { id: "teaching", label: { en: "Teaching", es: "Docencia" } },
   { id: "contact", label: { en: "Contact", es: "Contacto" } },
 ];
@@ -59,6 +61,13 @@ export const research: { title: L; body: L }[] = [
     },
   },
   {
+    title: { en: "Data science", es: "Ciencia de datos" },
+    body: {
+      en: "Turning large observational and model datasets into insight: processing, analysis and visualization.",
+      es: "Convertir grandes conjuntos de datos observacionales y de modelos en conocimiento: procesamiento, análisis y visualización.",
+    },
+  },
+  {
     title: { en: "Fluid mechanics", es: "Mecánica de fluidos" },
     body: {
       en: "The physical principles behind flows in the atmosphere and beyond.",
@@ -76,3 +85,37 @@ export type Course = {
 
 // Leave empty until the new course versions are published.
 export const courses: Course[] = [];
+
+export type Publication = {
+  title: string;
+  authors: string; // e.g. "Hoyos, C. D., Pérez, A."
+  venue: string; // journal, conference or book
+  year: number;
+  url?: string; // DOI link or PDF
+  topics?: string[]; // used by the filter chips, e.g. ["Climate", "Data science"]
+};
+
+// Newest first is not required; the page sorts by year.
+export const publications: Publication[] = [
+  // {
+  //   title: "Title of the article",
+  //   authors: "Hoyos, C. D., Coauthor, A.",
+  //   venue: "Journal name",
+  //   year: 2025,
+  //   url: "https://doi.org/...",
+  //   topics: ["Climate", "Data science"],
+  // },
+];
+
+export const scholarUrl = ""; // e.g. Google Scholar profile; shows a "Full list" link when set
+
+// Fill these in when ready; empty fields are hidden and the section shows
+// a "coming soon" message while `intro` is empty.
+export const semillero = {
+  name: { en: "Research seedbed", es: "Semillero de investigación" } as L,
+  intro: { en: "", es: "" } as L,
+  lines: [] as L[], // e.g. { en: "Climate", es: "Clima" }
+  activities: [] as { title: L; body: L }[],
+  members: [] as { name: string; role: L }[],
+  join: { en: "", es: "" } as L, // how students can join
+};
