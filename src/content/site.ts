@@ -118,6 +118,20 @@ export const courses: Course[] = [
     slug: "hidrologia",
     title: { en: "Hydrology", es: "Hidrología" },
     sections: [
+      {
+        title: { en: "Problem sets", es: "Talleres" },
+        materials: [
+          {
+            kind: "pdf",
+            title: { en: "Practice set — Del Sol a los alisios", es: "Taller de preparación — Del Sol a los alisios" },
+            description: {
+              en: "Exercises to study for the midterm: energy, greenhouse effect, circulation and weather (in Spanish).",
+              es: "Ejercicios para estudiar para el parcial: energía, invernadero, circulación y tiempo.",
+            },
+            href: "/cursos/hidrologia/taller-del-sol-a-los-alisios.pdf",
+          },
+        ],
+      },
       // {
       //   title: { en: "Unit 1 · The hydrologic cycle", es: "Unidad 1 · El ciclo hidrológico" },
       //   materials: [
