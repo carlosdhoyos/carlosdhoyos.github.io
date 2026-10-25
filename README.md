@@ -4,7 +4,18 @@ Personal site of Carlos D. Hoyos, built with Next.js (App Router), TypeScript an
 
 ## Editing content
 
-All text (English and Spanish) lives in [`src/content/site.ts`](src/content/site.ts). To list a course again, add it to the `courses` array there.
+All text (English and Spanish) lives in [`src/content/site.ts`](src/content/site.ts).
+
+### Courses
+
+Each entry in `courses` gets its own page at `/cursos/<slug>/` and a card in the Teaching section. Course materials are grouped in `sections`; each material links to:
+
+- **a file in this repo** — put it in `public/cursos/<slug>/` and use `href: "/cursos/<slug>/file.pdf"`
+- **anything else** — use the full URL (another GitHub repo, its GitHub Pages site, Colab, YouTube, Drive…). External links open in a new tab.
+
+`kind` (`notes`, `slides`, `notebook`, `pdf`, `video`, `repo`, `data`, `link`) only picks the icon and label. There is a commented example in `site.ts`.
+
+Note: other repositories with GitHub Pages enabled are served at `https://carlosdhoyos.github.io/<repo-name>/`, so don't name a repository `cursos`.
 
 ## Local development
 
