@@ -111,6 +111,22 @@ export type Publication = {
 // Order doesn't matter; the page sorts by year.
 export const publications: Publication[] = [
   {
+    title: "Evaluation and Setup of a High-Resolution Regional Coupled Ocean–Atmosphere Model for Hindcasting Tropical Cyclones in the North Atlantic Ocean Basin",
+    authors: "Zapata-Henao, M., Hoyos, C.D., Cardona, Y.",
+    venue: "Atmosphere",
+    year: 2026,
+    url: "https://doi.org/10.3390/atmos17040356",
+    topics: ["climate", "forecasting"],
+  },
+  {
+    title: "An assessment of the role of surface sensible heat flux and the atmosphere inversion on the breakup time in a highly complex terrain",
+    authors: "Herrera-Mejía, L., Hoyos, C.D., Rotach, M.W.",
+    venue: "Research Square (preprint)",
+    year: 2026,
+    url: "https://doi.org/10.21203/rs.3.rs-8961315/v1",
+    topics: ["atmosphere"],
+  },
+  {
     title: "Effects of fireworks on particulate matter concentration in a narrow valley: the case of the Medellín metropolitan area",
     authors: "Hoyos, C.D., Herrera-Mejía, L., Roldán-Henao, N., Isaza, A.",
     venue: "Environmental Monitoring and Assessment",
