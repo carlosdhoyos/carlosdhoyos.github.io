@@ -78,11 +78,12 @@ export const research: { title: L; body: L }[] = [
 ];
 
 // ---------------------------------------------------------------------------
-// Courses. Each one gets its own page at /cursos/<slug>/.
+// Courses and study groups each get their own page with linked materials:
+// courses at /cursos/<slug>/, study groups at /semillero/<slug>/.
 //
 // Materials can live anywhere:
-//   - in this repository: put the file in public/cursos/<slug>/ and link it as
-//     "/cursos/<slug>/file.pdf"
+//   - in this repository: put the file in public/cursos/<slug>/ (or
+//     public/semillero/<slug>/) and link it as "/cursos/<slug>/file.pdf"
 //   - in another repository or site: use the full URL, e.g.
 //     "https://github.com/carlosdhoyos/some-repo" or a GitHub Pages / Colab /
 //     YouTube / Drive link.
@@ -128,8 +129,8 @@ export const courses: Course[] = [
   },
 ];
 
-export function courseMaterialCount(c: Course) {
-  return (c.sections ?? []).reduce((n, s) => n + s.materials.length, 0);
+export function materialCount(sections: CourseSection[] = []) {
+  return sections.reduce((n, s) => n + s.materials.length, 0);
 }
 
 // Filter chips for the publications list; keys are used in `topics` below.
@@ -299,10 +300,21 @@ export const semillero = {
   activities: [] as { title: L; body: L }[],
   members: [] as { name: string; role: L }[],
   join: { en: "", es: "" } as L, // how students can join
-  // Research groups within the semillero. Without a description the card shows "Coming soon".
+  // Groups within the semillero. Each gets a page at /semillero/<slug>/ with
+  // the same structure as a course page (see `courses` above).
   groups: [
     {
+      slug: "ia-atmosfera-oceano",
       name: { en: "AI in Atmospheric and Oceanic Sciences", es: "IA en Ciencias Atmosféricas y Oceánicas" },
+      sections: [],
     },
-  ] as { name: L; description?: L; href?: string }[],
+  ] as StudyGroup[],
+};
+
+export type StudyGroup = {
+  slug: string; // URL segment: lowercase, no spaces or accents
+  name: L;
+  summary?: L; // shown on the card and the group page
+  about?: L; // longer description, group page only
+  sections?: CourseSection[]; // projects, readings, notebooks... same format as courses
 };
