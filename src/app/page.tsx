@@ -15,6 +15,15 @@ function SectionTitle({ index, children }: { index: string; children: React.Reac
   );
 }
 
+function SoonBadge() {
+  return (
+    <span className="inline-flex items-center gap-1.5 rounded-full border border-line px-2.5 py-0.5 text-xs text-muted">
+      <span className="size-1.5 animate-pulse rounded-full bg-accent-2" />
+      <T t={{ en: "Coming soon", es: "Próximamente" }} />
+    </span>
+  );
+}
+
 function EmptyState({ title, body }: { title: L; body: L }) {
   return (
     <Reveal>
@@ -178,7 +187,7 @@ export default function Home() {
               <T t={semillero.name} />
             </SectionTitle>
           </Reveal>
-          {!semillero.intro.en && !semillero.intro.es ? (
+          {!semillero.intro.en && !semillero.intro.es && semillero.groups.length === 0 ? (
             <EmptyState
               title={{ en: "More information coming soon.", es: "Más información próximamente." }}
               body={{
@@ -188,6 +197,7 @@ export default function Home() {
             />
           ) : (
             <div className="space-y-10">
+              {(semillero.intro.en || semillero.intro.es) && (
               <Reveal>
                 <p className="max-w-3xl text-xl leading-relaxed">
                   <T t={semillero.intro} />
@@ -202,6 +212,41 @@ export default function Home() {
                   </div>
                 )}
               </Reveal>
+              )}
+              {semillero.groups.length > 0 && (
+                <div className="grid gap-4 sm:grid-cols-2">
+                  {semillero.groups.map((g, i) => {
+                    const ready = !!(g.description?.en || g.description?.es);
+                    const body = (
+                      <>
+                        <h3 className="text-lg font-semibold">
+                          <T t={g.name} />
+                        </h3>
+                        {ready ? (
+                          <p className="mt-2 text-muted">
+                            <T t={g.description!} />
+                          </p>
+                        ) : (
+                          <div className="mt-4">
+                            <SoonBadge />
+                          </div>
+                        )}
+                      </>
+                    );
+                    return (
+                      <Reveal key={g.name.en} delay={i * 80}>
+                        {g.href ? (
+                          <a href={g.href} className="block h-full rounded-2xl border border-line bg-card p-6 transition hover:-translate-y-0.5 hover:border-accent/50">
+                            {body}
+                          </a>
+                        ) : (
+                          <article className="h-full rounded-2xl border border-line bg-card p-6">{body}</article>
+                        )}
+                      </Reveal>
+                    );
+                  })}
+                </div>
+              )}
               {semillero.activities.length > 0 && (
                 <div className="grid gap-4 sm:grid-cols-3">
                   {semillero.activities.map((a, i) => (
@@ -268,23 +313,42 @@ export default function Home() {
           ) : (
             <div className="grid gap-4 sm:grid-cols-2">
               {courses.map((c, i) => (
-                <Reveal key={c.href} delay={i * 80}>
-                  <a
-                    href={c.href}
-                    className="group flex h-full flex-col rounded-2xl border border-line bg-card p-6 transition hover:-translate-y-0.5 hover:border-accent/50"
-                  >
-                    {c.term && <span className="font-mono text-xs text-muted">{c.term}</span>}
-                    <h3 className="mt-2 text-lg font-semibold">
-                      <T t={c.title} />
-                    </h3>
-                    <p className="mt-2 flex-1 text-muted">
-                      <T t={c.summary} />
-                    </p>
-                    <span className="mt-4 text-sm font-medium text-accent">
-                      <T t={{ en: "Open course", es: "Abrir curso" }} />{" "}
-                      <span className="inline-block transition group-hover:translate-x-1">→</span>
-                    </span>
-                  </a>
+                <Reveal key={c.title.en} delay={i * 80}>
+                  {c.href ? (
+                    <a
+                      href={c.href}
+                      className="group flex h-full flex-col rounded-2xl border border-line bg-card p-6 transition hover:-translate-y-0.5 hover:border-accent/50"
+                    >
+                      {c.term && <span className="font-mono text-xs text-muted">{c.term}</span>}
+                      <h3 className="mt-2 text-lg font-semibold">
+                        <T t={c.title} />
+                      </h3>
+                      {c.summary && (
+                        <p className="mt-2 flex-1 text-muted">
+                          <T t={c.summary} />
+                        </p>
+                      )}
+                      <span className="mt-4 text-sm font-medium text-accent">
+                        <T t={{ en: "Open course", es: "Abrir curso" }} />{" "}
+                        <span className="inline-block transition group-hover:translate-x-1">→</span>
+                      </span>
+                    </a>
+                  ) : (
+                    <article className="flex h-full flex-col rounded-2xl border border-line bg-card p-6">
+                      {c.term && <span className="font-mono text-xs text-muted">{c.term}</span>}
+                      <h3 className="text-lg font-semibold">
+                        <T t={c.title} />
+                      </h3>
+                      {c.summary && (
+                        <p className="mt-2 flex-1 text-muted">
+                          <T t={c.summary} />
+                        </p>
+                      )}
+                      <div className="mt-4">
+                        <SoonBadge />
+                      </div>
+                    </article>
+                  )}
                 </Reveal>
               ))}
             </div>
