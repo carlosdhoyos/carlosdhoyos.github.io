@@ -111,6 +111,14 @@ export type Publication = {
 // Order doesn't matter; the page sorts by year.
 export const publications: Publication[] = [
   {
+    title: "Probabilistic discrimination between large-scale environments of intensifying and decaying African easterly waves",
+    authors: "Agudelo, P.A., Hoyos, C.D., Curry, J.A., Webster, P.J.",
+    venue: "Climate Dynamics",
+    year: 2011,
+    url: "https://doi.org/10.1007/s00382-010-0851-x",
+    topics: ["climate", "forecasting"],
+  },
+  {
     title: "Evaluation and Setup of a High-Resolution Regional Coupled Ocean–Atmosphere Model for Hindcasting Tropical Cyclones in the North Atlantic Ocean Basin",
     authors: "Zapata-Henao, M., Hoyos, C.D., Cardona, Y.",
     venue: "Atmosphere",
