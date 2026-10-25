@@ -88,28 +88,139 @@ export const courses: Course[] = [
   { title: { en: "Hydrology", es: "Hidrología" } },
 ];
 
+// Filter chips for the publications list; keys are used in `topics` below.
+export const pubTopics = {
+  climate: { en: "Climate & oceans", es: "Clima y océanos" },
+  hydrology: { en: "Hydrology & floods", es: "Hidrología e inundaciones" },
+  forecasting: { en: "Forecasting", es: "Pronóstico" },
+  atmosphere: { en: "Boundary layer & air quality", es: "Capa límite y calidad del aire" },
+} satisfies Record<string, L>;
+
+export type PubTopic = keyof typeof pubTopics;
+
 export type Publication = {
   title: string;
-  authors: string; // e.g. "Hoyos, C. D., Pérez, A."
+  authors: string; // "Hoyos, C.D." is highlighted automatically
   venue: string; // journal, conference or book
   year: number;
   url?: string; // DOI link or PDF
-  topics?: string[]; // used by the filter chips, e.g. ["Climate", "Data science"]
+  topics?: PubTopic[];
 };
 
-// Newest first is not required; the page sorts by year.
+// Selected publications (from Google Scholar, most cited plus recent work).
+// Order doesn't matter; the page sorts by year.
 export const publications: Publication[] = [
-  // {
-  //   title: "Title of the article",
-  //   authors: "Hoyos, C. D., Coauthor, A.",
-  //   venue: "Journal name",
-  //   year: 2025,
-  //   url: "https://doi.org/...",
-  //   topics: ["Climate", "Data science"],
-  // },
+  {
+    title: "Effects of fireworks on particulate matter concentration in a narrow valley: the case of the Medellín metropolitan area",
+    authors: "Hoyos, C.D., Herrera-Mejía, L., Roldán-Henao, N., Isaza, A.",
+    venue: "Environmental Monitoring and Assessment",
+    year: 2020,
+    url: "https://doi.org/10.1007/s10661-019-7838-9",
+    topics: ["atmosphere"],
+  },
+  {
+    title: "Reconstructing the 2015 Salgar flash flood using radar retrievals and a conceptual modeling framework in an ungauged basin",
+    authors: "Velásquez, N., Hoyos, C.D., Vélez, J.I., Zapata, E.",
+    venue: "Hydrology and Earth System Sciences",
+    year: 2020,
+    url: "https://doi.org/10.5194/hess-24-1367-2020",
+    topics: ["hydrology"],
+  },
+  {
+    title: "An investigation of the precipitation net effect on the particulate matter concentration in a narrow valley: role of lower-troposphere stability",
+    authors: "Roldán-Henao, N., Hoyos, C.D., Herrera-Mejía, L., Isaza, A.",
+    venue: "Journal of Applied Meteorology and Climatology",
+    year: 2020,
+    url: "https://doi.org/10.1175/jamc-d-18-0313.1",
+    topics: ["atmosphere"],
+  },
+  {
+    title: "Characterization of the atmospheric boundary layer in a narrow tropical valley using remote-sensing and radiosonde observations and the WRF model: the Aburrá Valley case-study",
+    authors: "Herrera-Mejía, L., Hoyos, C.D.",
+    venue: "Quarterly Journal of the Royal Meteorological Society",
+    year: 2019,
+    url: "https://doi.org/10.1002/qj.3583",
+    topics: ["atmosphere"],
+  },
+  {
+    title: "Meteorological conditions leading to the 2015 Salgar flash flood: lessons for vulnerable regions in tropical complex terrain",
+    authors: "Hoyos, C.D., Ceballos, L.I., Pérez-Carrasquilla, J.S., Sepúlveda, J., López-Zapata, S.M., Zuluaga, M.D., et al.",
+    venue: "Natural Hazards and Earth System Sciences",
+    year: 2019,
+    url: "https://doi.org/10.5194/nhess-19-2635-2019",
+    topics: ["hydrology", "atmosphere"],
+  },
+  {
+    title: "On the location and orientation of the South Pacific Convergence Zone",
+    authors: "Widlansky, M.J., Webster, P.J., Hoyos, C.D.",
+    venue: "Climate Dynamics",
+    year: 2011,
+    url: "https://doi.org/10.1007/s00382-010-0871-6",
+    topics: ["climate"],
+  },
+  {
+    title: "Extended-range probabilistic forecasts of Ganges and Brahmaputra floods in Bangladesh",
+    authors: "Webster, P.J., Jian, J., Hopson, T.M., Hoyos, C.D., Agudelo, P.A., Chang, H.R., et al.",
+    venue: "Bulletin of the American Meteorological Society",
+    year: 2010,
+    url: "https://doi.org/10.1175/2010bams2911.1",
+    topics: ["forecasting", "hydrology"],
+  },
+  {
+    title: "Beyond the spring barrier?",
+    authors: "Webster, P.J., Hoyos, C.D.",
+    venue: "Nature Geoscience",
+    year: 2010,
+    url: "https://doi.org/10.1038/ngeo800",
+    topics: ["forecasting", "climate"],
+  },
+  {
+    title: "North Pacific Gyre Oscillation synchronizes climate fluctuations in the eastern and western boundary systems",
+    authors: "Ceballos, L.I., Di Lorenzo, E., Hoyos, C.D., Schneider, N., Taguchi, B.",
+    venue: "Journal of Climate",
+    year: 2009,
+    url: "https://doi.org/10.1175/2009jcli2848.1",
+    topics: ["climate"],
+  },
+  {
+    title: "Large-scale controls on Ganges and Brahmaputra river discharge on intraseasonal and seasonal time-scales",
+    authors: "Jian, J., Webster, P.J., Hoyos, C.D.",
+    venue: "Quarterly Journal of the Royal Meteorological Society",
+    year: 2009,
+    url: "https://doi.org/10.1002/qj.384",
+    topics: ["hydrology", "climate"],
+  },
+  {
+    title: "The role of intraseasonal variability in the nature of Asian monsoon precipitation",
+    authors: "Hoyos, C.D., Webster, P.J.",
+    venue: "Journal of Climate",
+    year: 2007,
+    url: "https://doi.org/10.1175/jcli4252.1",
+    topics: ["climate"],
+  },
+  {
+    title: "Deconvolution of the factors contributing to the increase in global hurricane intensity",
+    authors: "Hoyos, C.D., Agudelo, P.A., Webster, P.J., Curry, J.A.",
+    venue: "Science",
+    year: 2006,
+    url: "https://doi.org/10.1126/science.1123560",
+    topics: ["climate"],
+  },
+  {
+    title: "Prediction of monsoon rainfall and river discharge on 15–30-day time scales",
+    authors: "Webster, P.J., Hoyos, C.",
+    venue: "Bulletin of the American Meteorological Society",
+    year: 2004,
+    url: "https://doi.org/10.1175/bams-85-11-1745",
+    topics: ["forecasting", "hydrology"],
+  },
 ];
 
-export const scholarUrl = ""; // e.g. Google Scholar profile; shows a "Full list" link when set
+// Shown as buttons above the publications list.
+export const academicProfiles = [
+  { label: "Google Scholar", href: "https://scholar.google.com/citations?user=tWcHH6cAAAAJ" },
+  { label: "ORCID", href: "https://orcid.org/0000-0002-9010-9784" },
+];
 
 // Fill these in when ready; empty fields are hidden and the section shows
 // a "coming soon" message while both `intro` and `groups` are empty.
