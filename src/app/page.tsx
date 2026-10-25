@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { about, academicProfiles, courseMaterialCount, courses, profile, publications, research, semillero } from "@/content/site";
+import { about, academicProfiles, courses, materialCount, profile, publications, research, semillero } from "@/content/site";
 import { Publications } from "@/components/Publications";
 import { Reveal } from "@/components/Reveal";
 import { EmptyState, SoonBadge } from "@/components/Site";
@@ -179,36 +179,30 @@ export default function Home() {
             )}
             {semillero.groups.length > 0 && (
               <div className="grid gap-4 sm:grid-cols-2">
-                {semillero.groups.map((g, i) => {
-                  const ready = !!(g.description?.en || g.description?.es);
-                  const body = (
-                    <>
+                {semillero.groups.map((g, i) => (
+                  <Reveal key={g.slug} delay={i * 80}>
+                    <Link
+                      href={`/semillero/${g.slug}/`}
+                      className="group flex h-full flex-col rounded-2xl border border-line bg-card p-6 transition hover:-translate-y-0.5 hover:border-accent/50"
+                    >
                       <h3 className="text-lg font-semibold">
                         <T t={g.name} />
                       </h3>
-                      {ready ? (
-                        <p className="mt-2 text-muted">
-                          <T t={g.description!} />
+                      {g.summary && (
+                        <p className="mt-2 flex-1 text-muted">
+                          <T t={g.summary} />
                         </p>
-                      ) : (
-                        <div className="mt-4">
-                          <SoonBadge />
-                        </div>
                       )}
-                    </>
-                  );
-                  return (
-                    <Reveal key={g.name.en} delay={i * 80}>
-                      {g.href ? (
-                        <a href={g.href} className="block h-full rounded-2xl border border-line bg-card p-6 transition hover:-translate-y-0.5 hover:border-accent/50">
-                          {body}
-                        </a>
-                      ) : (
-                        <article className="h-full rounded-2xl border border-line bg-card p-6">{body}</article>
-                      )}
-                    </Reveal>
-                  );
-                })}
+                      <div className="mt-4 flex flex-wrap items-center gap-3">
+                        <span className="text-sm font-medium text-accent">
+                          <T t={{ en: "Open", es: "Abrir" }} />{" "}
+                          <span className="inline-block transition group-hover:translate-x-1">→</span>
+                        </span>
+                        {materialCount(g.sections) === 0 && <SoonBadge />}
+                      </div>
+                    </Link>
+                  </Reveal>
+                ))}
               </div>
             )}
             {semillero.activities.length > 0 && (
@@ -277,7 +271,7 @@ export default function Home() {
         ) : (
           <div className="grid gap-4 sm:grid-cols-2">
             {courses.map((c, i) => {
-              const count = courseMaterialCount(c);
+              const count = materialCount(c.sections);
               return (
                 <Reveal key={c.slug} delay={i * 80}>
                   <Link

@@ -15,7 +15,11 @@ Each entry in `courses` gets its own page at `/cursos/<slug>/` and a card in the
 
 `kind` (`notes`, `slides`, `notebook`, `pdf`, `video`, `repo`, `data`, `link`) only picks the icon and label. There is a commented example in `site.ts`.
 
-Note: other repositories with GitHub Pages enabled are served at `https://carlosdhoyos.github.io/<repo-name>/`, so don't name a repository `cursos`.
+### Study group (semillero)
+
+Each entry in `semillero.groups` works the same way: it gets a page at `/semillero/<slug>/` and uses the same `sections` / materials format. Files in this repo go in `public/semillero/<slug>/`.
+
+Note: other repositories with GitHub Pages enabled are served at `https://carlosdhoyos.github.io/<repo-name>/`, so don't name a repository `cursos` or `semillero`.
 
 ## Local development
 
