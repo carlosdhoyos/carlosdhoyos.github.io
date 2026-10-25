@@ -1,16 +1,22 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import type { Publication } from "@/content/site";
+import { pubTopics, type Publication, type PubTopic } from "@/content/site";
 import { T } from "@/components/T";
+
+// Bold the site owner's name in an author list.
+function Authors({ text }: { text: string }) {
+  const parts = text.split(/(Hoyos, C\.(?:\s?D\.)?)/);
+  return <>{parts.map((s, i) => (i % 2 ? <strong key={i} className="font-semibold text-fg">{s}</strong> : s))}</>;
+}
 
 // Searchable, topic-filterable list of publications grouped by year.
 export function Publications({ items }: { items: Publication[] }) {
   const [query, setQuery] = useState("");
-  const [topic, setTopic] = useState<string | null>(null);
+  const [topic, setTopic] = useState<PubTopic | null>(null);
 
   const topics = useMemo(
-    () => [...new Set(items.flatMap((p) => p.topics ?? []))].sort(),
+    () => (Object.keys(pubTopics) as PubTopic[]).filter((t) => items.some((p) => p.topics?.includes(t))),
     [items],
   );
 
@@ -48,7 +54,7 @@ export function Publications({ items }: { items: Publication[] }) {
             </button>
             {topics.map((t) => (
               <button key={t} type="button" className={chip(topic === t)} onClick={() => setTopic(topic === t ? null : t)}>
-                {t}
+                <T t={pubTopics[t]} />
               </button>
             ))}
           </div>
@@ -69,7 +75,9 @@ export function Publications({ items }: { items: Publication[] }) {
                   const body = (
                     <>
                       <p className="font-medium leading-snug">{p.title}</p>
-                      <p className="mt-1 text-sm text-muted">{p.authors}</p>
+                      <p className="mt-1 text-sm text-muted">
+                        <Authors text={p.authors} />
+                      </p>
                       <p className="mt-1 text-sm italic text-muted">{p.venue}</p>
                     </>
                   );

@@ -1,4 +1,4 @@
-import { about, courses, nav, profile, publications, research, scholarUrl, semillero, type L } from "@/content/site";
+import { about, academicProfiles, courses, nav, profile, publications, research, semillero, type L } from "@/content/site";
 import { LangToggle, ThemeToggle } from "@/components/Controls";
 import { MobileNav } from "@/components/MobileNav";
 import { Publications } from "@/components/Publications";
@@ -154,15 +154,26 @@ export default function Home() {
         {/* Publications */}
         <section id="publications" className="mx-auto max-w-5xl px-4 py-24 sm:px-6">
           <Reveal>
-            <div className="flex flex-wrap items-baseline justify-between gap-4">
-              <SectionTitle index="03">
-                <T t={{ en: "Publications", es: "Publicaciones" }} />
-              </SectionTitle>
-              {scholarUrl && (
-                <a href={scholarUrl} target="_blank" rel="noreferrer" className="mb-10 text-sm font-medium text-accent hover:underline">
-                  <T t={{ en: "Full list", es: "Lista completa" }} /> ↗
-                </a>
-              )}
+            <SectionTitle index="03">
+              <T t={{ en: "Publications", es: "Publicaciones" }} />
+            </SectionTitle>
+            <div className="-mt-4 mb-10 flex flex-wrap items-center gap-x-6 gap-y-3">
+              <p className="text-muted">
+                <T t={{ en: "Selected publications. Full list on:", es: "Publicaciones seleccionadas. Lista completa en:" }} />
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {academicProfiles.map((l) => (
+                  <a
+                    key={l.href}
+                    href={l.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="rounded-full border border-line bg-card px-4 py-1.5 text-sm font-medium transition hover:border-accent/50 hover:text-accent"
+                  >
+                    {l.label} ↗
+                  </a>
+                ))}
+              </div>
             </div>
           </Reveal>
           {publications.length === 0 ? (
@@ -375,7 +386,7 @@ export default function Home() {
                   {email}
                 </a>
               ))}
-              {profile.links.map((l) => (
+              {[...academicProfiles, ...profile.links].map((l) => (
                 <a
                   key={l.href}
                   href={l.href}
