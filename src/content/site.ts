@@ -79,13 +79,14 @@ export const research: { title: L; body: L }[] = [
 
 export type Course = {
   title: L;
-  summary: L;
-  href: string;
+  summary?: L;
+  href?: string; // without a link the card shows "Coming soon"
   term?: string;
 };
 
-// Leave empty until the new course versions are published.
-export const courses: Course[] = [];
+export const courses: Course[] = [
+  { title: { en: "Hydrology", es: "Hidrología" } },
+];
 
 export type Publication = {
   title: string;
@@ -111,7 +112,7 @@ export const publications: Publication[] = [
 export const scholarUrl = ""; // e.g. Google Scholar profile; shows a "Full list" link when set
 
 // Fill these in when ready; empty fields are hidden and the section shows
-// a "coming soon" message while `intro` is empty.
+// a "coming soon" message while both `intro` and `groups` are empty.
 export const semillero = {
   name: { en: "Research seedbed", es: "Semillero de investigación" } as L,
   intro: { en: "", es: "" } as L,
@@ -119,4 +120,10 @@ export const semillero = {
   activities: [] as { title: L; body: L }[],
   members: [] as { name: string; role: L }[],
   join: { en: "", es: "" } as L, // how students can join
+  // Research groups within the semillero. Without a description the card shows "Coming soon".
+  groups: [
+    {
+      name: { en: "AI in Atmospheric and Oceanic Sciences", es: "IA en Ciencias Atmosféricas y Oceánicas" },
+    },
+  ] as { name: L; description?: L; href?: string }[],
 };
