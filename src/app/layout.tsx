@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { profile } from "@/content/site";
+import { SiteFooter, SiteHeader } from "@/components/Site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -44,7 +45,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <head>
         <script dangerouslySetInnerHTML={{ __html: boot }} />
       </head>
-      <body className="min-h-full flex flex-col font-sans">{children}</body>
+      <body className="min-h-full flex flex-col font-sans">
+        <SiteHeader />
+        {children}
+        <SiteFooter />
+      </body>
     </html>
   );
 }

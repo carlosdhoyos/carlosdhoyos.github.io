@@ -77,16 +77,60 @@ export const research: { title: L; body: L }[] = [
   },
 ];
 
-export type Course = {
+// ---------------------------------------------------------------------------
+// Courses. Each one gets its own page at /cursos/<slug>/.
+//
+// Materials can live anywhere:
+//   - in this repository: put the file in public/cursos/<slug>/ and link it as
+//     "/cursos/<slug>/file.pdf"
+//   - in another repository or site: use the full URL, e.g.
+//     "https://github.com/carlosdhoyos/some-repo" or a GitHub Pages / Colab /
+//     YouTube / Drive link.
+// ---------------------------------------------------------------------------
+
+export type MaterialKind = "notes" | "slides" | "notebook" | "pdf" | "video" | "repo" | "data" | "link";
+
+export type Material = {
   title: L;
-  summary?: L;
-  href?: string; // without a link the card shows "Coming soon"
-  term?: string;
+  href: string;
+  kind?: MaterialKind; // picks the icon; defaults to "link"
+  description?: L;
+};
+
+export type CourseSection = {
+  title: L; // e.g. { en: "Unit 1 · Water balance", es: "Unidad 1 · Balance hídrico" }
+  description?: L;
+  materials: Material[];
+};
+
+export type Course = {
+  slug: string; // URL segment: lowercase, no spaces or accents
+  title: L;
+  summary?: L; // one or two lines, shown on the card and the course page
+  term?: string; // e.g. "2026-I"
+  about?: L; // longer description, shown on the course page only
+  sections?: CourseSection[];
 };
 
 export const courses: Course[] = [
-  { title: { en: "Hydrology", es: "Hidrología" } },
+  {
+    slug: "hidrologia",
+    title: { en: "Hydrology", es: "Hidrología" },
+    sections: [
+      // {
+      //   title: { en: "Unit 1 · The hydrologic cycle", es: "Unidad 1 · El ciclo hidrológico" },
+      //   materials: [
+      //     { kind: "slides", title: { en: "Lecture slides", es: "Diapositivas" }, href: "/cursos/hidrologia/u1-slides.pdf" },
+      //     { kind: "notebook", title: { en: "Lab notebook", es: "Notebook de laboratorio" }, href: "https://github.com/carlosdhoyos/hidrologia/blob/main/u1.ipynb" },
+      //   ],
+      // },
+    ],
+  },
 ];
+
+export function courseMaterialCount(c: Course) {
+  return (c.sections ?? []).reduce((n, s) => n + s.materials.length, 0);
+}
 
 // Filter chips for the publications list; keys are used in `topics` below.
 export const pubTopics = {
