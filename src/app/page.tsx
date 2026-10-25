@@ -202,7 +202,7 @@ export default function Home() {
             <EmptyState
               title={{ en: "More information coming soon.", es: "Más información próximamente." }}
               body={{
-                en: "Details about the research seedbed and how to join will be published here.",
+                en: "Details about undergraduate research opportunities and how to join will be published here.",
                 es: "Aquí se publicarán los detalles del semillero y cómo hacer parte de él.",
               }}
             />

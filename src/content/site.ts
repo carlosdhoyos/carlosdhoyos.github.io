@@ -29,7 +29,7 @@ export const nav: { id: string; label: L }[] = [
   { id: "about", label: { en: "About", es: "Perfil" } },
   { id: "research", label: { en: "Research", es: "Investigación" } },
   { id: "publications", label: { en: "Publications", es: "Publicaciones" } },
-  { id: "semillero", label: { en: "Research group", es: "Semillero" } },
+  { id: "semillero", label: { en: "Student Research", es: "Semillero" } },
   { id: "teaching", label: { en: "Teaching", es: "Docencia" } },
   { id: "contact", label: { en: "Contact", es: "Contacto" } },
 ];
@@ -249,7 +249,7 @@ export const academicProfiles = [
 // Fill these in when ready; empty fields are hidden and the section shows
 // a "coming soon" message while both `intro` and `groups` are empty.
 export const semillero = {
-  name: { en: "Research seedbed", es: "Semillero de investigación" } as L,
+  name: { en: "Undergraduate Research", es: "Semillero de investigación" } as L,
   intro: { en: "", es: "" } as L,
   lines: [] as L[], // e.g. { en: "Climate", es: "Clima" }
   activities: [] as { title: L; body: L }[],
