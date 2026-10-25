@@ -238,9 +238,9 @@ export default function Home() {
                     <p>
                       <T t={semillero.join} />
                     </p>
-                    {profile.email && (
-                      <a href={`mailto:${profile.email}`} className="mt-4 inline-block text-sm font-medium text-accent hover:underline">
-                        {profile.email} →
+                    {profile.emails[0] && (
+                      <a href={`mailto:${profile.emails[0]}`} className="mt-4 inline-block text-sm font-medium text-accent hover:underline">
+                        {profile.emails[0]} →
                       </a>
                     )}
                   </div>
@@ -298,14 +298,19 @@ export default function Home() {
               <T t={{ en: "Contact", es: "Contacto" }} />
             </SectionTitle>
             <div className="flex flex-wrap gap-3">
-              {profile.email && (
+              {profile.emails.map((email, i) => (
                 <a
-                  href={`mailto:${profile.email}`}
-                  className="rounded-full bg-fg px-5 py-2.5 text-sm font-medium text-bg transition hover:opacity-85"
+                  key={email}
+                  href={`mailto:${email}`}
+                  className={
+                    i === 0
+                      ? "rounded-full bg-fg px-5 py-2.5 text-sm font-medium text-bg transition hover:opacity-85"
+                      : "rounded-full border border-line bg-card px-5 py-2.5 text-sm font-medium transition hover:border-fg/40"
+                  }
                 >
-                  {profile.email}
+                  {email}
                 </a>
-              )}
+              ))}
               {profile.links.map((l) => (
                 <a
                   key={l.href}
