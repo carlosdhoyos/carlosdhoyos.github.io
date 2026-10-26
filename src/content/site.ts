@@ -343,7 +343,25 @@ export const semillero = {
     {
       slug: "ia-atmosfera-oceano",
       name: { en: "AI in Atmospheric and Oceanic Sciences", es: "IA en Ciencias Atmosféricas y Oceánicas" },
-      sections: [],
+      sections: [
+        {
+          title: { en: "Previous courses", es: "Cursos anteriores" },
+          materials: [
+            {
+              kind: "notes",
+              title: {
+                en: "Introduction to AI and Machine Learning in Atmospheric Sciences · 2024-2",
+                es: "Introducción a la IA y el aprendizaje automático en ciencias atmosféricas · 2024-2",
+              },
+              description: {
+                en: "Course book from semester 2024-2, including student projects. Archived: not updated since December 2024.",
+                es: "Libro del curso del semestre 2024-2, con los proyectos de los estudiantes (en inglés). Archivado: sin actualizar desde diciembre de 2024.",
+              },
+              href: "https://carlosdhoyos.github.io/intro_2_aiml_in_atmos_sciences/intro.html",
+            },
+          ],
+        },
+      ],
     },
   ] as StudyGroup[],
 };
