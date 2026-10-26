@@ -345,6 +345,38 @@ export const semillero = {
       name: { en: "AI in Atmospheric and Oceanic Sciences", es: "IA en Ciencias Atmosféricas y Oceánicas" },
       sections: [
         {
+          title: { en: "Resources", es: "Recursos" },
+          materials: [
+            {
+              kind: "data",
+              title: { en: "AI papers catalog", es: "Catálogo de artículos de IA" },
+              description: {
+                en: "373 papers on machine learning for weather, climate, ocean and sea ice, ranked by citations, with search, filters, summaries and BibTeX.",
+                es: "373 artículos de aprendizaje automático para tiempo, clima, océano y hielo marino, ordenados por citas, con búsqueda, filtros, resúmenes y BibTeX (en inglés).",
+              },
+              href: "/semillero/ia-atmosfera-oceano/papers/",
+            },
+            {
+              kind: "interactive",
+              title: { en: "How the field is changing", es: "Cómo está cambiando el campo" },
+              description: {
+                en: "Interactive analysis of the catalog: architectures, goals, training data, limitations and open problems over time.",
+                es: "Análisis interactivo del catálogo: arquitecturas, objetivos, datos de entrenamiento, limitaciones y problemas abiertos en el tiempo (en inglés).",
+              },
+              href: "/semillero/ia-atmosfera-oceano/papers/eda.html",
+            },
+            {
+              kind: "repo",
+              title: { en: "Catalog source code and data", es: "Código y datos del catálogo" },
+              description: {
+                en: "Scripts, DuckDB database, BibTeX and the full exploratory analysis.",
+                es: "Scripts, base de datos DuckDB, BibTeX y el análisis exploratorio completo.",
+              },
+              href: "https://github.com/carlosdhoyos/ai-in-atmospheric-and-oceanic-sciences",
+            },
+          ],
+        },
+        {
           title: { en: "Previous courses", es: "Cursos anteriores" },
           materials: [
             {
