@@ -89,7 +89,7 @@ export const research: { title: L; body: L }[] = [
 //     YouTube / Drive link.
 // ---------------------------------------------------------------------------
 
-export type MaterialKind = "notes" | "slides" | "notebook" | "pdf" | "video" | "repo" | "data" | "link";
+export type MaterialKind = "notes" | "slides" | "interactive" | "notebook" | "pdf" | "video" | "repo" | "data" | "link";
 
 export type Material = {
   title: L;
@@ -118,6 +118,20 @@ export const courses: Course[] = [
     slug: "hidrologia",
     title: { en: "Hydrology", es: "Hidrología" },
     sections: [
+      {
+        title: { en: "Interactive material", es: "Material interactivo" },
+        materials: [
+          {
+            kind: "interactive",
+            title: { en: "From the Sun to the trade winds", es: "Del Sol a los alisios" },
+            description: {
+              en: "Interactive lecture on physical climatology: radiation, energy balance, greenhouse effect, Hadley circulation, ENSO, hurricanes and climate change (in Spanish). Large file (~43 MB), may take a moment to load.",
+              es: "Clase interactiva de climatología física: radiación, balance energético, invernadero, circulación de Hadley, ENSO, huracanes y cambio climático. Archivo pesado (~43 MB): puede tardar en cargar.",
+            },
+            href: "/cursos/hidrologia/del-sol-a-los-alisios.html",
+          },
+        ],
+      },
       {
         title: { en: "Problem sets", es: "Talleres" },
         materials: [
