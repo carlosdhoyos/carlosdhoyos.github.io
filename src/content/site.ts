@@ -351,8 +351,8 @@ export const semillero = {
               kind: "data",
               title: { en: "AI papers catalog", es: "Catálogo de artículos de IA" },
               description: {
-                en: "373 papers on machine learning for weather, climate, ocean and sea ice, ranked by citations, with search, filters, summaries and BibTeX.",
-                es: "373 artículos de aprendizaje automático para tiempo, clima, océano y hielo marino, ordenados por citas, con búsqueda, filtros, resúmenes y BibTeX (en inglés).",
+                en: "897 papers on machine learning for weather, climate, ocean, sea ice, hydrology, energy and agriculture, ranked by citations, with search, filters, summaries and BibTeX.",
+                es: "897 artículos de aprendizaje automático para tiempo, clima, océano, hielo marino, hidrología, energía y agricultura, ordenados por citas, con búsqueda, filtros, resúmenes y BibTeX (en inglés).",
               },
               href: "/semillero/ia-atmosfera-oceano/papers/",
             },
@@ -364,6 +364,15 @@ export const semillero = {
                 es: "Análisis interactivo del catálogo: arquitecturas, objetivos, datos de entrenamiento, limitaciones y problemas abiertos en el tiempo (en inglés).",
               },
               href: "/semillero/ia-atmosfera-oceano/papers/eda.html",
+            },
+            {
+              kind: "interactive",
+              title: { en: "Where the strongest work is published", es: "Dónde se publica el trabajo más influyente" },
+              description: {
+                en: "Journal and conference assessment: which venues publish the most influential work, how that has changed, and what each one specializes in.",
+                es: "Evaluación de revistas y conferencias: qué medios publican el trabajo más influyente, cómo ha cambiado y en qué se especializa cada uno (en inglés).",
+              },
+              href: "/semillero/ia-atmosfera-oceano/papers/journals.html",
             },
             {
               kind: "repo",
