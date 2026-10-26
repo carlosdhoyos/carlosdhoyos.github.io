@@ -130,6 +130,15 @@ export const courses: Course[] = [
             },
             href: "/cursos/hidrologia/del-sol-a-los-alisios.html",
           },
+          {
+            kind: "interactive",
+            title: { en: "Evapotranspiration", es: "Evapotranspiración" },
+            description: {
+              en: "Interactive lecture: physics of evaporation, surface energy balance, plants, Penman–FAO-56, measurement, satellites and examples from Colombia, with simulators in every section (in Spanish).",
+              es: "Clase interactiva: física de la evaporación, balance de energía, plantas, Penman–FAO-56, medición, satélites y ejemplos de Colombia, con simuladores en cada sección.",
+            },
+            href: "/cursos/hidrologia/evapotranspiracion.html",
+          },
         ],
       },
       {
