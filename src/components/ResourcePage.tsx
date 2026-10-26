@@ -15,6 +15,7 @@ const kindLabel: Record<MaterialKind, { en: string; es: string }> = {
   video: { en: "Video", es: "Video" },
   repo: { en: "Repository", es: "Repositorio" },
   data: { en: "Data", es: "Datos" },
+  interactive: { en: "Interactive", es: "Interactivo" },
   link: { en: "Link", es: "Enlace" },
 };
 
@@ -27,6 +28,7 @@ const kindIcon: Record<MaterialKind, React.ReactNode> = {
   video: <path d="M3 6h13v12H3zM16 10l5-3v10l-5-3" />,
   repo: <path d="M6 3v18M6 7a2 2 0 1 0 0-.01M18 7a2 2 0 1 0 0-.01M6 17a2 2 0 1 0 0-.01M18 9v1a4 4 0 0 1-4 4H6" />,
   data: <path d="M4 6c0-1.7 3.6-3 8-3s8 1.3 8 3-3.6 3-8 3-8-1.3-8-3zM4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3" />,
+  interactive: <path d="M9 3v2M4.2 5.2l1.4 1.4M3 10h2M14.8 5.2l-1.4 1.4M9 9l11 4-4.5 1.5L14 19z" />,
   link: <path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1" />,
 };
 
