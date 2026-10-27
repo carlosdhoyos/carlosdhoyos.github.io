@@ -345,6 +345,20 @@ export const semillero = {
       name: { en: "AI in Atmospheric and Oceanic Sciences", es: "IA en Ciencias Atmosféricas y Oceánicas" },
       sections: [
         {
+          title: { en: "Class materials", es: "Material de clase" },
+          materials: [
+            {
+              kind: "interactive",
+              title: { en: "Inside a neural network", es: "Dentro de una red neuronal" },
+              description: {
+                en: "Interactive deck (53 slides): the data foundation (quality control, encoding, splits, leakage, imbalance, bias) and architecture (neurons, dense layers, convolution, recurrence, attention, graphs, normalization).",
+                es: "Presentación interactiva (53 diapositivas): fundamentos de datos (control de calidad, codificación, particiones, fuga de información, desbalance, sesgo) y arquitectura (neuronas, capas densas, convolución, recurrencia, atención, grafos, normalización). En inglés.",
+              },
+              href: "/semillero/ia-atmosfera-oceano/slides/neural-networks.html",
+            },
+          ],
+        },
+        {
           title: { en: "Resources", es: "Recursos" },
           materials: [
             {
