@@ -351,8 +351,8 @@ export const semillero = {
               kind: "data",
               title: { en: "AI papers catalog", es: "Catálogo de artículos de IA" },
               description: {
-                en: "2,849 papers (1980–2026) on machine learning for weather, climate, ocean, sea ice, hydrology, energy and agriculture, ranked by citations, with search, filters, summaries, key reviews and BibTeX.",
-                es: "2.849 artículos (1980–2026) de aprendizaje automático para tiempo, clima, océano, hielo marino, hidrología, energía y agricultura, ordenados por citas, con búsqueda, filtros, resúmenes, revisiones clave y BibTeX (en inglés).",
+                en: "4,683 papers (1980–2026) on machine learning for weather, climate, ocean, sea ice, hydrology, energy and agriculture, ranked by citations, with search, filters, summaries, key reviews and BibTeX.",
+                es: "4.683 artículos (1980–2026) de aprendizaje automático para tiempo, clima, océano, hielo marino, hidrología, energía y agricultura, ordenados por citas, con búsqueda, filtros, resúmenes, revisiones clave y BibTeX (en inglés).",
               },
               href: "/semillero/ia-atmosfera-oceano/papers/",
             },
