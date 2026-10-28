@@ -345,16 +345,47 @@ export const semillero = {
       name: { en: "AI in Atmospheric and Oceanic Sciences", es: "IA en Ciencias Atmosféricas y Oceánicas" },
       sections: [
         {
-          title: { en: "Class materials", es: "Material de clase" },
+          title: { en: "Neural networks · class series", es: "Redes neuronales · serie de clases" },
+          description: {
+            en: "Interactive decks with a “Try it” on every slide. Modules 4 (Blocks) and 5 (Architecture families) are coming next.",
+            es: "Presentaciones interactivas con un ejercicio en cada diapositiva (en inglés). Próximamente: módulo 4 (bloques) y 5 (familias de arquitecturas).",
+          },
           materials: [
             {
               kind: "interactive",
-              title: { en: "Inside a neural network", es: "Dentro de una red neuronal" },
+              title: { en: "0 · Overview", es: "0 · Panorama general" },
               description: {
-                en: "Interactive deck (53 slides): the data foundation (quality control, encoding, splits, leakage, imbalance, bias) and architecture (neurons, dense layers, convolution, recurrence, attention, graphs, normalization).",
-                es: "Presentación interactiva (53 diapositivas): fundamentos de datos (control de calidad, codificación, particiones, fuga de información, desbalance, sesgo) y arquitectura (neuronas, capas densas, convolución, recurrencia, atención, grafos, normalización). En inglés.",
+                en: "10 slides: the neuron, the levels of a network, data, layers, residuals, data shapes and training one neuron.",
+                es: "10 diapositivas: la neurona, los niveles de una red, los datos, las capas, conexiones residuales, formas de los datos y entrenar una neurona.",
               },
-              href: "/semillero/ia-atmosfera-oceano/slides/neural-networks.html",
+              href: "/semillero/ia-atmosfera-oceano/slides/",
+            },
+            {
+              kind: "interactive",
+              title: { en: "1 · Data foundation", es: "1 · Fundamentos de datos" },
+              description: {
+                en: "25 slides: acquisition, quality control, encoding, transformations, missing data, splits, leakage, imbalance, labels, bias and governance.",
+                es: "25 diapositivas: adquisición, control de calidad, codificación, transformaciones, datos faltantes, particiones, fuga de información, desbalance, etiquetas, sesgo y gobernanza.",
+              },
+              href: "/semillero/ia-atmosfera-oceano/slides/data-foundation.html",
+            },
+            {
+              kind: "interactive",
+              title: { en: "2 · Operations", es: "2 · Operaciones" },
+              description: {
+                en: "41 slides: thirty operations, one per slide, each with worked numbers and an interactive panel.",
+                es: "41 diapositivas: treinta operaciones, una por diapositiva, cada una con un ejemplo numérico y un panel interactivo.",
+              },
+              href: "/semillero/ia-atmosfera-oceano/slides/operations.html",
+            },
+            {
+              kind: "interactive",
+              title: { en: "3 · Layers", es: "3 · Capas" },
+              description: {
+                en: "14 slides: layer types, output layers by task, LSTM/GRU gates, width and depth, parameter counts.",
+                es: "14 diapositivas: tipos de capas, capas de salida según la tarea, compuertas LSTM/GRU, ancho y profundidad, conteo de parámetros.",
+              },
+              href: "/semillero/ia-atmosfera-oceano/slides/layers.html",
             },
           ],
         },
