@@ -347,8 +347,8 @@ export const semillero = {
         {
           title: { en: "Neural networks · class series", es: "Redes neuronales · serie de clases" },
           description: {
-            en: "Interactive decks with a “Try it” on every slide. Coming next: Modules 4 (Blocks), 5 (Architecture families) and 6 (Optimization).",
-            es: "Presentaciones interactivas con un ejercicio en cada diapositiva (en inglés). Próximamente: módulos 4 (bloques), 5 (familias de arquitecturas) y 6 (optimización).",
+            en: "Interactive decks with a “Try it” on every slide. Coming next: Modules 4 (Blocks) and 5 (Architecture families); Module 6 (Optimization) is in progress.",
+            es: "Presentaciones interactivas con un ejercicio en cada diapositiva (en inglés). Próximamente: módulos 4 (bloques) y 5 (familias de arquitecturas); el módulo 6 (optimización) está en construcción.",
           },
           materials: [
             {
@@ -373,8 +373,8 @@ export const semillero = {
               kind: "interactive",
               title: { en: "2 · Operations", es: "2 · Operaciones" },
               description: {
-                en: "41 slides: thirty operations, one per slide, each with worked numbers and an interactive panel.",
-                es: "41 diapositivas: treinta operaciones, una por diapositiva, cada una con un ejemplo numérico y un panel interactivo.",
+                en: "43 slides: thirty operations, one per slide, each with worked numbers and an interactive panel; dense vs attention.",
+                es: "43 diapositivas: treinta operaciones, una por diapositiva, cada una con un ejemplo numérico y un panel interactivo; capas densas frente a atención.",
               },
               href: "/semillero/ia-atmosfera-oceano/slides/operations.html",
             },
@@ -386,6 +386,15 @@ export const semillero = {
                 es: "14 diapositivas: tipos de capas, capas de salida según la tarea, compuertas LSTM/GRU, ancho y profundidad, conteo de parámetros.",
               },
               href: "/semillero/ia-atmosfera-oceano/slides/layers.html",
+            },
+            {
+              kind: "interactive",
+              title: { en: "6 · Optimization (in progress)", es: "6 · Optimización (en construcción)" },
+              description: {
+                en: "5 slides so far: training step by step with backpropagation, training vs held-out error and early stopping, and why random starts give different answers.",
+                es: "5 diapositivas por ahora: el entrenamiento paso a paso con retropropagación, error de entrenamiento frente a datos reservados y parada temprana, y por qué distintos inicios aleatorios dan respuestas distintas.",
+              },
+              href: "/semillero/ia-atmosfera-oceano/slides/optimization.html",
             },
           ],
         },
