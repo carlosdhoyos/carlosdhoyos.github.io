@@ -373,8 +373,8 @@ export const semillero = {
               kind: "interactive",
               title: { en: "2 · Operations", es: "2 · Operaciones" },
               description: {
-                en: "47 slides: thirty operations, one per slide, each with worked numbers and an interactive panel, plus a three-slide glossary of what each operation is and what it is for.",
-                es: "47 diapositivas: treinta operaciones, una por diapositiva, cada una con un ejemplo numérico y un panel interactivo, y un glosario de tres diapositivas con qué es y para qué sirve cada operación.",
+                en: "49 slides: thirty operations, one per slide, each with worked numbers and an interactive panel; step-by-step LSTM and self-attention; a three-slide glossary of what each operation is and what it is for.",
+                es: "49 diapositivas: treinta operaciones, una por diapositiva, cada una con un ejemplo numérico y un panel interactivo; LSTM y autoatención paso a paso; y un glosario de tres diapositivas con qué es y para qué sirve cada operación.",
               },
               href: "/semillero/ia-atmosfera-oceano/slides/operations.html",
             },
