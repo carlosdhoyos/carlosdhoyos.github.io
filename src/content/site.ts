@@ -347,16 +347,16 @@ export const semillero = {
         {
           title: { en: "Neural networks · class series", es: "Redes neuronales · serie de clases" },
           description: {
-            en: "Interactive decks with a “Try it” on every slide. Modules 4 (Blocks) and 5 (Architecture families) are coming next.",
-            es: "Presentaciones interactivas con un ejercicio en cada diapositiva (en inglés). Próximamente: módulo 4 (bloques) y 5 (familias de arquitecturas).",
+            en: "Interactive decks with a “Try it” on every slide. Coming next: Modules 4 (Blocks), 5 (Architecture families) and 6 (Optimization).",
+            es: "Presentaciones interactivas con un ejercicio en cada diapositiva (en inglés). Próximamente: módulos 4 (bloques), 5 (familias de arquitecturas) y 6 (optimización).",
           },
           materials: [
             {
               kind: "interactive",
               title: { en: "0 · Overview", es: "0 · Panorama general" },
               description: {
-                en: "10 slides: the neuron, the levels of a network, data, layers, residuals, data shapes and training one neuron.",
-                es: "10 diapositivas: la neurona, los niveles de una red, los datos, las capas, conexiones residuales, formas de los datos y entrenar una neurona.",
+                en: "11 slides: the neuron, the levels of a network, data, layers, residuals, data shapes, training one neuron and the error landscape.",
+                es: "11 diapositivas: la neurona, los niveles de una red, los datos, las capas, conexiones residuales, formas de los datos, entrenar una neurona y el paisaje del error.",
               },
               href: "/semillero/ia-atmosfera-oceano/slides/",
             },
