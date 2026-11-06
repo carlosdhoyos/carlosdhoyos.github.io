@@ -164,6 +164,12 @@ export const courses: Course[] = [
       // },
     ],
   },
+  {
+    slug: "pae-minas",
+    title: { en: "PAE-Minas", es: "PAE-Minas" },
+    term: "202602",
+    sections: [],
+  },
 ];
 
 export function materialCount(sections: CourseSection[] = []) {
