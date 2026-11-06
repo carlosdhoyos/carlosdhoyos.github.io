@@ -168,7 +168,22 @@ export const courses: Course[] = [
     slug: "pae-minas",
     title: { en: "PAE-Minas", es: "PAE-Minas" },
     term: "202602",
-    sections: [],
+    sections: [
+      {
+        title: { en: "Interactive material", es: "Material interactivo" },
+        materials: [
+          {
+            kind: "interactive",
+            title: { en: "Ni-laterite prospectivity with machine learning", es: "Prospectividad de Ni-laterita con aprendizaje automático" },
+            description: {
+              en: "Interactive deck (46 slides, in Spanish): logistic regression, spatial validation and prospectivity maps, trees and Random Forest, boosting, SVM and MaxEnt, and a comparison of 10 models, all trained live in the browser on a synthetic area inspired by Cerro Matoso.",
+              es: "Presentación interactiva (46 diapositivas): regresión logística, validación espacial y mapas de prospectividad, árboles y Random Forest, boosting, SVM y MaxEnt, y una comparación de 10 modelos, todos entrenados en el navegador sobre un área sintética inspirada en Cerro Matoso.",
+            },
+            href: "/cursos/pae-minas/prospectividad-ni-laterita.html",
+          },
+        ],
+      },
+    ],
   },
 ];
 
