@@ -142,6 +142,23 @@ export const courses: Course[] = [
         ],
       },
       {
+        title: { en: "Assignments", es: "Tareas" },
+        materials: [
+          {
+            kind: "pdf",
+            title: {
+              en: "Assignment 1 · Monthly hydroclimatic classification of a basin",
+              es: "Tarea 1 · Clasificación hidroclimática a escala mensual de una cuenca",
+            },
+            description: {
+              en: "Semester 202602, groups of three (in Spanish): monthly series and data quality, relations between series, trends, Fourier analysis and correlation maps with global climate; includes the report format and grading rubric.",
+              es: "Semestre 202602, en grupos de tres: series mensuales y control de calidad, relaciones entre series, tendencias, análisis de Fourier y mapas de correlación con el clima global; incluye el formato del informe y la rúbrica.",
+            },
+            href: "/cursos/hidrologia/tarea-1-202602.pdf",
+          },
+        ],
+      },
+      {
         title: { en: "Problem sets", es: "Talleres" },
         materials: [
           {
