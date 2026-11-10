@@ -156,6 +156,18 @@ export const courses: Course[] = [
             },
             href: "/cursos/hidrologia/tarea-1-202602.pdf",
           },
+          {
+            kind: "pdf",
+            title: {
+              en: "Assignment 2 · Evapotranspiration and hydrological design",
+              es: "Tarea 2 · Evapotranspiración y diseño hidrológico",
+            },
+            description: {
+              en: "Semester 202602, groups of three, due Tuesday 24 November 2026 (in Spanish): how much water the basin returns to the atmosphere and what limits it, and design rainfall from IDF curves built from a sub-daily series; includes the report format, submission rules and rubrics.",
+              es: "Semestre 202602, en grupos de tres, entrega el martes 24 de noviembre de 2026: cuánta agua devuelve la cuenca a la atmósfera y qué la limita, y lluvia de diseño con curvas IDF a partir de una serie subdiaria; incluye el formato del informe, la entrega y las rúbricas.",
+            },
+            href: "/cursos/hidrologia/tarea-2-202602.pdf",
+          },
         ],
       },
       {
