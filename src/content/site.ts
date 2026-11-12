@@ -455,8 +455,8 @@ export const semillero = {
               kind: "interactive",
               title: { en: "NVIDIA Earth-2: how the AI weather and climate models work", es: "NVIDIA Earth-2: cómo funcionan sus modelos de IA para tiempo y clima" },
               description: {
-                en: "Interactive deck (61 slides): global forecasting (FourCastNet, SFNO, Atlas), data assimilation, downscaling with CorrDiff, nowcasting with StormCast and a step-by-step StormScope, climate emulation and Earth2Studio. Toy demos for teaching, with the published numbers alongside.",
-                es: "Presentación interactiva (61 diapositivas, en inglés): pronóstico global (FourCastNet, SFNO, Atlas), asimilación de datos, downscaling con CorrDiff, nowcasting con StormCast y StormScope paso a paso, emulación del clima y Earth2Studio. Demos de juguete con fines didácticos, junto a las cifras publicadas.",
+                en: "Interactive deck (76 slides): global forecasting (FourCastNet, SFNO, Atlas), data assimilation, downscaling with CorrDiff, nowcasting with StormCast, a step-by-step StormScope (the whole network end to end, and diffusion models from scratch trained live in the browser), climate emulation and Earth2Studio. Toy demos for teaching, with the published numbers alongside.",
+                es: "Presentación interactiva (76 diapositivas, en inglés): pronóstico global (FourCastNet, SFNO, Atlas), asimilación de datos, downscaling con CorrDiff, nowcasting con StormCast, StormScope paso a paso (la red completa de principio a fin y modelos de difusión desde cero, entrenados en vivo en el navegador), emulación del clima y Earth2Studio. Demos de juguete con fines didácticos, junto a las cifras publicadas.",
               },
               href: "/semillero/ia-atmosfera-oceano/slides/earth2/",
             },
