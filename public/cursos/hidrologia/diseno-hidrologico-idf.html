@@ -499,7 +499,10 @@ select.sel:focus,.fld select:focus,input[type=number]:focus,input[type=text]:foc
 .dots{flex-wrap:nowrap;gap:4px}.dots button{width:14px}
 .readout b{white-space:normal}
 #cmpRd b,.ctl output{white-space:nowrap}
-ul.refs{columns:3;column-gap:22px;font-size:11.5px;line-height:1.35;padding-left:14px}ul.refs li{break-inside:avoid;margin-bottom:3px}@media (max-width:760px){ul.refs{columns:1;font-size:13px}}
+ul.slide p.sym{grid-column:1/-1;max-width:none;font-size:12px;line-height:1.45;color:var(--muted);margin-top:8px}.slide p.sym b{color:var(--fg)}
+.trev{display:grid;grid-template-columns:1fr 1fr;gap:6px}.trev .chip{font-size:12.5px;padding:5px 8px}
+.trsteps{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}.trsteps .chip:disabled{opacity:.4;cursor:default}
+.refs{columns:3;column-gap:22px;font-size:11.5px;line-height:1.35;padding-left:14px}ul.refs li{break-inside:avoid;margin-bottom:3px}@media (max-width:760px){ul.refs{columns:1;font-size:13px}}
 #qtTab td,#qtTab th{white-space:nowrap}
 .eq{font-size:15px}
 svg{width:100%;height:auto;display:block}
@@ -526,14 +529,14 @@ ol.ruta{margin:0;padding-left:20px}
     <div class="toc">
       <button data-go="1" class="ca"><div class="n">Ruta</div><div class="t">La pregunta del diseño</div></button>
       <button data-go="2" class="ca"><div class="n">1</div><div class="t">Conceptos: riesgo, series, distribuciones</div></button>
-      <button data-go="8" class="cb"><div class="n">2</div><div class="t">Datos y control de calidad</div></button>
-      <button data-go="11" class="cc"><div class="n">3</div><div class="t">Análisis de frecuencia</div></button>
-      <button data-go="18" class="cd"><div class="n">4</div><div class="t">Curvas IDF</div></button>
-      <button data-go="21" class="ce"><div class="n">5</div><div class="t">Caso 1: alcantarilla</div></button>
-      <button data-go="26" class="cf"><div class="n">6</div><div class="t">Caso 2: tanque de detención</div></button>
-      <button data-go="28" class="ci"><div class="n">7</div><div class="t">¿Y si cambia el clima?</div></button>
-      <button data-go="33" class="cg"><div class="n">8</div><div class="t">Temas avanzados</div></button>
-      <button data-go="36" class="ch"><div class="n">Cierre</div><div class="t">Síntesis y uso en la Tarea 2</div></button>
+      <button data-go="9" class="cb"><div class="n">2</div><div class="t">Datos y control de calidad</div></button>
+      <button data-go="12" class="cc"><div class="n">3</div><div class="t">Análisis de frecuencia</div></button>
+      <button data-go="19" class="cd"><div class="n">4</div><div class="t">Curvas IDF</div></button>
+      <button data-go="22" class="ce"><div class="n">5</div><div class="t">Caso 1: alcantarilla</div></button>
+      <button data-go="27" class="cf"><div class="n">6</div><div class="t">Caso 2: tanque de detención</div></button>
+      <button data-go="29" class="ci"><div class="n">7</div><div class="t">¿Y si cambia el clima?</div></button>
+      <button data-go="34" class="cg"><div class="n">8</div><div class="t">Temas avanzados</div></button>
+      <button data-go="37" class="ch"><div class="n">Cierre</div><div class="t">Síntesis y uso en la Tarea 2</div></button>
     </div>
     <p class="note">Flechas del teclado o los puntos de abajo para navegar. Las cifras salen de la serie real; la microcuenca de los casos de diseño es un ejemplo: en un proyecto real se delimita con un DEM.</p>
   </div>
@@ -566,7 +569,7 @@ ol.ruta{margin:0;padding-left:20px}
   <div class="ixgrid">
     <div class="panel ixctl">
       <div class="ctl"><label for="pfT">Periodo de retorno de diseño T (años)</label><input id="pfT" type="range" min="0.7" max="2.7" step="0.01" value="2"><output id="pfTo"></output></div>
-      <div class="ctl"><label for="pfN">Vida útil de la obra (años)</label><input id="pfN" type="range" min="10" max="80" step="1" value="50"><output id="pfNo"></output></div>
+      <div class="ctl"><label for="pfN">Vida útil n (años)</label><input id="pfN" type="range" min="10" max="80" step="1" value="50"><output id="pfNo"></output></div>
       <button class="chip" id="pfGo" aria-pressed="false">Otro futuro posible</button>
       <div class="readout" id="pfRd"></div>
     </div>
@@ -578,6 +581,7 @@ ol.ruta{margin:0;padding-left:20px}
     <div class="callout amber"><b>El supuesto clave: estacionariedad.</b> Usar el pasado para el futuro supone que el clima y la cuenca no cambian. Si el clima se calienta o la cuenca se urbaniza, el pasado subestima el futuro (partes 3 y 7).</div>
     <div class="callout blue"><b>El precio de mirar poco pasado.</b> Con 33 años se estima una lluvia de 100 años: se extrapola más allá de lo observado. Por eso todo valor de diseño va con su incertidumbre, y por eso importan los registros largos.</div>
   </div>
+  <p class="note sym"><b>Símbolos.</b> T: periodo de retorno (años); n: vida útil de la obra (años); 1/T: probabilidad de igualar o superar la lámina de diseño en un año cualquiera.</p>
 </section>
 <section class="slide" data-g="a" data-sec="1 · Conceptos">
   <p class="kicker k-a">1 · Riesgo y periodo de retorno</p>
@@ -602,6 +606,32 @@ ol.ruta{margin:0;padding-left:20px}
     <div class="callout">Verifique: T = n da ≈ 63 % para n grande (63,6 % con n = 50); T = 100 con n = 50 da 39,5 %; 10 % en 10 años exige T ≈ 95 años.</div>
   </div>
   <p class="note">Supone años independientes y clima estacionario (Chow et al., 1988, ec. 12.1.4 y sec. 13.2). Valores de práctica (tabla 13.1.1): alcantarillas de vía con poco tráfico 5–10 años, tráfico intermedio 10–25, tráfico alto 50–100; alcantarillado de ciudades pequeñas 2–25 y grandes 25–50.</p>
+  <p class="note sym"><b>Símbolos.</b> T: periodo de retorno (años); n: vida útil (años); p = 1/T: probabilidad anual de igualar o superar el evento de diseño; R: riesgo, probabilidad de al menos una superación en n años; 1 − R: confiabilidad.</p>
+</section>
+
+<section class="slide" data-g="a" data-sec="1 · Conceptos">
+  <p class="kicker k-a">1 · Del año a la vida útil</p>
+  <h2>Cada año es un sorteo: el árbol de fallas lleva de p = 1/T al riesgo y a la distribución binomial</h2>
+  <div class="ixgrid">
+    <div class="panel ixctl">
+      <div class="ctl"><label for="trT">Periodo de retorno T (años)</label><input id="trT" type="range" min="2" max="100" step="1" value="10"><output id="trTo"></output></div>
+      <h3>Años n</h3><div class="chips" id="trN"></div>
+      <h3>Evento</h3><div class="chips trev" id="trE"></div>
+      <div class="readout"><div><span>Probabilidad del evento</span><b class="big-lw" id="trP"></b></div></div>
+      <p class="note" id="trSum"></p>
+      <div class="trsteps"><button class="chip" id="trStart">Inicio</button><button class="chip" id="trPrev">← Paso</button><button class="chip" id="trNext">Paso →</button><button class="chip" id="trAll">Todo</button></div>
+      <p class="note" id="trSay"></p><p class="note" id="trS"></p>
+    </div>
+    <div><svg id="trSvg" style="max-height:400px;width:100%" viewBox="0 0 700 300" role="img" aria-label="Árbol de probabilidades de falla año por año"></svg></div>
+  </div>
+  <div class="meth2">
+    <div class="eq" style="grid-column:1/-1">P(K = k) = C(n, k) · p<sup>k</sup> · (1 − p)<sup>n − k</sup> &nbsp;&nbsp; con p = 1/T &nbsp;&nbsp;·&nbsp;&nbsp; R = P(K ≥ 1) = 1 − (1 − p)<sup>n</sup></div>
+    <div class="callout"><b>Del árbol a la fórmula.</b> Cada camino con k fallas vale p<sup>k</sup>(1 − p)<sup>n − k</sup> (años independientes) y hay C(n, k) caminos así: el número de fallas K en n años es <b>binomial</b> (Chow et al., 1988, sec. 12.1).</div>
+    <div class="callout"><b>El riesgo es lo que queda fuera de una sola hoja.</b> «Al menos una falla» es todo menos la hoja N N … N: R = 1 − (1 − p)<sup>n</sup>. Con T = 10, 19 % en 2 años y 65 % en 10.</div>
+    <div class="callout"><b>«Una vez cada T años» es un promedio.</b> E[K] = n·p: en n = T años se espera una falla, pero P(K = 0) ≈ e<sup>−1</sup> = 37 % (de ahí el 63 %). Y puede fallar más de una vez: con T = 100 y n = 50, P(K ≥ 2) ≈ 8,9 %.</div>
+    <div class="callout blue"><b>Tiempo hasta la primera falla.</b> P(primera falla en el año k) = (1 − p)<sup>k − 1</sup>·p (geométrica), con media 1/p = T: el periodo de retorno es un tiempo medio entre superaciones, no una cita fija. Supone años independientes, clima estacionario y T conocido.</div>
+  </div>
+  <p class="note sym"><b>Símbolos.</b> F: ese año se iguala o supera el evento de diseño (falla); N: no se supera; p = 1/T; n: años considerados; K: número de fallas en n años y k uno de sus valores (0, 1, …, n); C(n, k) = n!/[k!(n − k)!]: número de caminos con k fallas; R: riesgo; E[K]: valor esperado de K; e ≈ 2,718.</p>
 </section>
 
 <section class="slide" data-g="a" data-sec="1 · Conceptos">
@@ -621,6 +651,7 @@ ol.ruta{margin:0;padding-left:20px}
     <div class="callout blue"><b>¿Qué duración usar en el diseño?</b> El <b>tiempo de concentración</b> t<sub>c</sub>: lo que tarda el agua en llegar desde el punto más lejano de la cuenca hasta la salida. Con una lluvia de duración t<sub>c</sub> toda la cuenca aporta a la vez y el caudal pico es máximo (premisa del método racional). Por eso la IDF se lee en d = t<sub>c</sub>.</div>
     <div class="callout"><b>Ruta del diseño</b>: serie subdiaria → control de calidad → máximos anuales por duración → ajuste de distribuciones → cuantiles con incertidumbre → IDF → intensidad en t<sub>c</sub> → caudal (racional) → diámetro (Manning) → riesgo.</div>
   </div>
+  <p class="note sym"><b>Símbolos.</b> d: duración (h o min); P<sub>d</sub>: lámina máxima en d (mm); i: intensidad media (mm/h); T: periodo de retorno (años); x<sub>T</sub>(d): cuantil de T años; t<sub>c</sub>: tiempo de concentración.</p>
 </section>
 <section class="slide" data-g="a" data-sec="1 · Conceptos">
   <p class="kicker k-a">1 · Dos maneras de muestrear extremos</p>
@@ -643,6 +674,7 @@ ol.ruta{margin:0;padding-left:20px}
       <p class="note">La serie parcial cuenta eventos, no años: un T<sub>parcial</sub> de 1 año (un evento por año en promedio) equivale a T<sub>anual</sub> = 1,58 años. Para T = 10 difieren un 5 % y la diferencia sigue bajando: por eso las dos series dan casi lo mismo en diseño, pero no para T pequeños.</p>
     </div>
   </div>
+  <p class="note sym"><b>Símbolos.</b> X: lámina de un pico; u: umbral; X − u: exceso; σ, ξ: escala y forma de la GPD; λ: picos por año; p: probabilidad anual de superación; T<sub>parcial</sub>: periodo de retorno en la serie de picos; T<sub>anual</sub>: en la serie de máximos anuales.</p>
 </section>
 <section class="slide" data-g="a" data-sec="1 · Conceptos">
   <p class="kicker k-a">1 · Familias de distribuciones</p>
@@ -665,18 +697,20 @@ ol.ruta{margin:0;padding-left:20px}
     <tr><td>Pareto generalizada (GPD)</td><td>1 − [1 + ξ(x − u)/σ]<sup>−1/ξ</sup></td><td>σ, ξ (u fijo)</td><td>excesos sobre umbral; <code>genpareto(c=+ξ)</code> (¡signo opuesto a genextreme!)</td></tr>
   </table></div>
   <p class="note">Verifique cada librería con un caso conocido antes de interpretar signos: un error de signo en ξ convierte una cola pesada en una acotada.</p>
+  <p class="note sym"><b>Símbolos.</b> x: lámina (mm); F(x) = P(X ≤ x): probabilidad de no excedencia; u, α: posición y escala de Gumbel; μ, σ, ξ: posición, escala y forma de la GEV; y = log<sub>10</sub> x y g su asimetría (LP3); x₀: límite inferior (GNO); ζ, α, k: posición, escala y forma de la GLO; variable reducida de Gumbel y = −ln(−ln F); x<sub>T</sub>: cuantil de T años; τ₃: L-asimetría (diapositiva siguiente).</p>
 </section>
 <section class="slide" data-g="a" data-sec="1 · Conceptos">
   <p class="kicker k-a">1 · Estimación y diagnóstico</p>
   <h2>Tres maneras de ajustar y cuatro maneras de dudar del ajuste</h2>
   <div class="meth2">
     <div class="callout"><b>Momentos</b>: igualar media, varianza y asimetría muestrales. Con 20–30 datos la asimetría muestral está sesgada hacia abajo y es muy variable: la cola puede quedar subestimada o, con un dato extremo, absurda.</div>
-    <div class="callout"><b>L-momentos</b> (Hosking, 1990): combinaciones lineales de los datos ordenados, b<sub>r</sub> = n<sup>−1</sup> Σ (j−1)…(j−r)/[(n−1)…(n−r)] x<sub>(j)</sub>; λ₁ = b₀, λ₂ = 2b₁ − b₀, τ₃ = λ₃/λ₂, τ₄ = λ₄/λ₂. Poco sensibles a valores extremos; estándar en análisis regional.</div>
+    <div class="callout"><b>L-momentos</b> (Hosking, 1990): combinaciones lineales de los datos ordenados, b<sub>r</sub> = N<sup>−1</sup> Σ (j−1)…(j−r)/[(N−1)…(N−r)] x<sub>(j)</sub>; λ₁ = b₀, λ₂ = 2b₁ − b₀, τ₃ = λ₃/λ₂, τ₄ = λ₄/λ₂. Poco sensibles a valores extremos; estándar en análisis regional.</div>
     <div class="callout"><b>Máxima verosimilitud</b>: maximiza Σ ln f(x<sub>i</sub>; θ). Permite covariables (tiempo, temperatura) y da errores estándar, pero la forma de la GEV es inestable con muestras cortas; existen versiones penalizadas (Martins y Stedinger, 2000).</div>
     <div class="callout"><b>Posiciones de graficación</b>: p<sub>m</sub> = (m − a)/(N + 1 − 2a), con m el rango descendente y p la probabilidad de excedencia. Weibull a = 0 (insesgada en probabilidad, pero ubica el mayor valor en un T corto, N + 1); Cunnane a = 0,4; Gringorten a = 0,44 (óptima para Gumbel; para GEV con ξ &gt; 0, a ≈ 0,35–0,40).</div>
     <div class="callout amber"><b>Pruebas de bondad</b>: KS (D), Anderson–Darling (A², pesa más las colas) y PPCC (correlación del papel de probabilidad). Si los parámetros se estiman con la misma muestra, el valor p de KS de las tablas es demasiado alto (problema de Lilliefors): use valores críticos por distribución (Vogel, 1986, para PPCC de Gumbel; Chowdhury et al., 1991, para GEV) o un bootstrap paramétrico. Con 33 datos, «no se rechaza» no prueba nada.</div>
     <div class="callout"><b>Incertidumbre del cuantil</b>: para Gumbel por momentos, s<sub>T</sub> = (s/√N)·√(1 + 1,1396 K<sub>T</sub> + 1,1000 K<sub>T</sub>²) (Chow et al., 1988, ec. 12.6.9; Kite, 1977), donde K<sub>T</sub> = (x<sub>T</sub> − x̄)/s es el factor de frecuencia; para Gumbel, K<sub>T</sub> = −(√6/π)[0,5772 + ln ln(T/(T − 1))]. En general, bootstrap: remuestrear años, reajustar y tomar los percentiles 2,5 y 97,5 (con colas pesadas y N pequeño, el bootstrap por percentiles subcubre; BCa o bootstrap paramétrico ayudan).</div>
   </div>
+  <p class="note sym"><b>Símbolos.</b> N: número de datos (años); x<sub>(j)</sub>: dato j ordenado de menor a mayor; b<sub>r</sub>: momentos ponderados por probabilidad; λ<sub>r</sub>: L-momento de orden r (λ₃ = 6b₂ − 6b₁ + b₀, λ₄ = 20b₃ − 30b₂ + 12b₁ − b₀); τ₃, τ₄: L-asimetría y L-curtosis; f: densidad; θ: parámetros; m: rango descendente; a: constante de la posición; p<sub>m</sub>: probabilidad de excedencia del dato m; D: máxima distancia entre la distribución empírica y la ajustada (KS); A²: estadístico de Anderson–Darling; x̄, s: media y desviación estándar muestrales; s<sub>T</sub>: error estándar del cuantil x<sub>T</sub>; K<sub>T</sub>: factor de frecuencia.</p>
 </section>
 <section class="slide" data-g="b" data-sec="2 · Datos">
   <p class="kicker k-b">2 · La serie</p>
@@ -712,6 +746,7 @@ ol.ruta{margin:0;padding-left:20px}
       <p class="note" id="wsNote"></p>
     </div>
   </div>
+  <p class="note sym"><b>Símbolos.</b> n (en la corrección de Weiss): número de intervalos de reloj (horas) que forman la duración; las banderas M, R, Q, D, O, «a» y «A» son las del archivo de NOAA.</p>
 </section>
 
 <section class="slide" data-g="b" data-sec="2 · Datos">
@@ -727,6 +762,7 @@ ol.ruta{margin:0;padding-left:20px}
       <p><b>Factor de reducción areal (FRA)</b>: ≤ 1, baja con el área y sube con la duración. Se usa cuando la cuenca es mucho mayor que el «punto» del pluviógrafo; en 0,5 km² es casi 1. La diapositiva de escala lo muestra con números.</p>
     </div>
   </div>
+  <p class="note sym"><b>Símbolos.</b> i: intensidad (mm/h); d: duración (min); θ (min) y η: parámetros de la IDF (parte 4); t<sub>c</sub>: tiempo de concentración; FRA: factor de reducción areal.</p>
 </section>
 
 <section class="slide" data-g="c" data-sec="3 · Análisis de frecuencia">
@@ -736,6 +772,7 @@ ol.ruta{margin:0;padding-left:20px}
   <svg id="amSvg" viewBox="0 0 980 300" role="img" aria-label="Máximos anuales por año"></svg>
   <div class="readout" id="amRd"></div>
   <p class="note">Ventana móvil de d horas sobre toda la serie válida; el máximo de cada año válido, multiplicado por el factor de Weiss. Faltan 24 de los 57 años (los que no cumplen la completitud, entre ellos 1993–1995 y 1997–2000); no se rellenan: la serie de máximos no es consecutiva. Línea discontinua: pendiente de Sen (se discute en la diapositiva de estacionariedad).</p>
+  <p class="note sym"><b>Símbolos.</b> d: duración de la ventana (h); Z: estadístico de Mann–Kendall; p: su valor p; Sen: pendiente de Sen (mm/década).</p>
 </section>
 
 <section class="slide" data-g="c" data-sec="3 · Análisis de frecuencia">
@@ -749,6 +786,7 @@ ol.ruta{margin:0;padding-left:20px}
       <p class="note">Todos los puntos quedan a la derecha de Gumbel (τ<sub>3</sub> = 0,17): ξ &gt; 0 en GEV. Pero la desviación estándar muestral (bootstrap) de τ<sub>4</sub> es ≈ 0,08–0,10 y la de τ<sub>3</sub> ≈ 0,09–0,13: con 33 años el diagrama no distingue GEV, GLO y GNO. Un solo evento pesa: sin 2013, τ<sub>3</sub> de 24 h baja de 0,28 a 0,13. Para evaluar LP3 hay que usar los L-momentos de log<sub>10</sub> x contra la curva PE3 (rombos). La curva GPA es la de excesos sobre umbral. Polinomios de Hosking y Wallis (1997). El análisis regional reduce esta incertidumbre.</p>
     </div>
   </div>
+  <p class="note sym"><b>Símbolos.</b> λ₁: L-media (igual a la media, mm); λ₂: L-escala (mm); τ₃ = λ₃/λ₂: L-asimetría; τ₄ = λ₄/λ₂: L-curtosis; GLO: logística generalizada; GNO: lognormal de 3 parámetros; GPA: Pareto generalizada; PE3: Pearson III; ξ: forma de la GEV.</p>
 </section>
 
 <section class="slide" data-g="c" data-sec="3 · Análisis de frecuencia">
@@ -764,6 +802,7 @@ ol.ruta{margin:0;padding-left:20px}
     <div><svg id="ppSvg" viewBox="0 0 640 360" role="img" aria-label="Papel de probabilidad de Gumbel"></svg></div>
   </div>
   <p class="note">Eje horizontal: variable reducida de Gumbel, y = −ln(−ln F); en ese papel Gumbel es una recta. Posiciones p<sub>m</sub> = (m − a)/(N + 1 − 2a), con m el rango descendente: Weibull a = 0, Cunnane a = 0,4, Gringorten a = 0,44 (óptima para Gumbel). Con 33 años el mayor valor recibe T = 34 con Weibull, 55 con Cunnane y 59 con Gringorten. Compare: con 33 años, extrapolar a 100 años depende casi todo de la forma de la cola.</p>
+  <p class="note sym"><b>Símbolos.</b> F: probabilidad de no excedencia; y = −ln(−ln F): variable reducida de Gumbel; p<sub>m</sub>: probabilidad de excedencia asignada al dato de rango m; N: número de años; a: constante de cada posición de graficación; T = 1/p<sub>m</sub>.</p>
 </section>
 
 <section class="slide" data-g="c" data-sec="3 · Análisis de frecuencia">
@@ -774,6 +813,7 @@ ol.ruta{margin:0;padding-left:20px}
   <div id="agGrid" class="aggrid"></div>
   <svg id="agAll" viewBox="0 0 980 380" role="img" aria-label="Ajustes GEV de todas las duraciones en un solo gráfico" style="display:none"></svg>
   <p class="note" id="agNote">Cada panel: máximos anuales de esa duración (puntos, posición de Gringorten) y los ajustes Gumbel (azul), GEV (rojo) y LP3 (verde) con el método elegido. Al agregar en ventanas más largas la lámina crece, la dispersión crece y la forma cambia: cada duración necesita su propio ajuste, y la curva IDF es justamente la colección de esos ajustes divididos por la duración. En la vista conjunta (escala logarítmica) se ve que las curvas de distintas duraciones son casi paralelas: esa regularidad es la que aprovecha una expresión IDF con pocos parámetros.</p>
+  <p class="note sym"><b>Símbolos.</b> ξ: forma de la GEV; x₁₀₀: cuantil de 100 años (mm); y: variable reducida de Gumbel; T: periodo de retorno (años).</p>
 </section>
 <section class="slide" data-g="c" data-sec="3 · Análisis de frecuencia">
   <p class="kicker k-c">3 · Tabla de cuantiles y bondad de ajuste</p>
@@ -785,6 +825,7 @@ ol.ruta{margin:0;padding-left:20px}
     <div class="callout amber"><b>Pruebas</b>: los valores p de KS de la tabla usan parámetros estimados con la misma muestra, así que son demasiado altos (Lilliefors); úselos solo para comparar entre ajustes, o calcule valores críticos con bootstrap paramétrico. A² y PPCC necesitan valores críticos por distribución. Con 33 datos casi todas «pasan».</div>
   </div>
   <p class="note">Cuantiles en mm de lámina para la duración elegida. Fila resaltada: GEV por L-momentos, la elegida en este ejemplo por prudencia (da la cola más pesada), por el diagrama de L-momentos (τ₃ &gt; 0,17 en todas las duraciones) y por la práctica regional (NOAA Atlas 14 usa GEV por L-momentos). Forma: ξ = −c de genextreme; para LP3, g es la asimetría de log<sub>10</sub> x.</p>
+  <p class="note sym"><b>Símbolos.</b> T: periodo de retorno (años); KS D: estadístico de Kolmogorov–Smirnov (máxima distancia entre distribución empírica y ajustada); KS p: su valor p; A²: Anderson–Darling; PPCC: coeficiente de correlación del papel de probabilidad; ξ: forma de la GEV (c: la de genextreme, c = −ξ); g: asimetría de log<sub>10</sub> x en LP3; τ₃: L-asimetría; N: número de años.</p>
 </section>
 
 <section class="slide" data-g="c" data-sec="3 · Análisis de frecuencia">
@@ -796,6 +837,7 @@ ol.ruta{margin:0;padding-left:20px}
     <svg id="btW" viewBox="0 0 520 330" role="img" aria-label="Ancho relativo del intervalo frente a T/N"></svg>
   </div>
   <p class="note">1000 réplicas bootstrap: se remuestrean los años (los mismos en todas las duraciones) y se reajusta la GEV por L-momentos; banda = percentiles 2,5 y 97,5. Derecha: ancho relativo (alto − bajo)/cuantil frente a T/N, con N = 33. Para Gumbel por momentos existe fórmula cerrada, s<sub>T</sub> = (s/√N)·√(1 + 1,1396 K<sub>T</sub> + 1,1000 K<sub>T</sub>²) (Chow et al., 1988, ec. 12.6.9); la línea gris la muestra: en 1 h y T = 100 da 41–65 mm, contra 40–78 mm del bootstrap de la GEV, porque Gumbel fija la forma de la cola y no suma esa incertidumbre.</p>
+  <p class="note sym"><b>Símbolos.</b> T: periodo de retorno (años); N = 33: número de años; IC 95 %: intervalo de confianza del 95 %; x<sub>T</sub>: cuantil; s<sub>T</sub>: su error estándar; s: desviación estándar muestral; K<sub>T</sub>: factor de frecuencia (diapositiva de estimación).</p>
 </section>
 
 <section class="slide" data-g="c" data-sec="3 · Análisis de frecuencia">
@@ -812,6 +854,7 @@ ol.ruta{margin:0;padding-left:20px}
       <div class="callout amber">En 24 h, p = 0,04, pero sin 2013 p = 0,10; son seis pruebas sin corrección por comparaciones múltiples, faltan 24 de los 57 años (el tramo más largo sin datos es 1997–2000; 1996 sí es válido) y cambia de resolución (1980–1999 solo registra múltiplos de 2,54 mm). Conclusión defendible: hay indicios de aumento de los aguaceros de 6–24 h; para diseñar a 24 h conviene una GEV no estacionaria o un escenario de cambio climático (parte 7).</div>
     </div>
   </div>
+  <p class="note sym"><b>Símbolos.</b> S: suma de signos de Mann–Kendall; Z: S estandarizado; p: valor p; Sen: pendiente de Sen (mm/década).</p>
 </section>
 <section class="slide" data-g="d" data-sec="4 · Curvas IDF">
   <p class="kicker k-d">4 · Curvas IDF</p>
@@ -830,6 +873,7 @@ ol.ruta{margin:0;padding-left:20px}
     <div class="eq">i(d, T) = a(T) / (d + θ)<sup>η</sup> &nbsp;(Koutsoyiannis et al., 1998); aquí a(T) = K T<sup>m</sup></div>
   </div>
   <p class="note">Puntos: cuantiles GEV (L-momentos) de 1 a 24 h; curva: ajuste por mínimos cuadrados en logaritmos (error cuadrático medio en logaritmos 0,037, ≈ 3,7 %; residuo máximo 9,5 % en 2 h y T = 100). Con la forma separable K T<sup>m</sup> las curvas no pueden cruzarse: la coherencia hay que revisarla en los cuantiles de cada duración. El método completo de Koutsoyiannis estima primero b(d) = (d + θ)<sup>η</sup> y luego ajusta a(T) a la muestra conjunta reescalada; aquí se simplificó. Zona sombreada: extrapolación; a 10 min y T = 100, θ = 6,5 da 176 mm/h y θ = 0 da 235 mm/h (+34 %). En el diseño se usa el cuantil GEV de 1 h escalado con esta forma: (60 + θ)<sup>η</sup>/(d + θ)<sup>η</sup>. Validez: 60–1440 min y T de 2 a 100 años.</p>
+  <p class="note sym"><b>Símbolos.</b> i: intensidad (mm/h); d: duración (min); T: periodo de retorno (años); K, m, θ (min), η: parámetros ajustados; a(T): factor que depende solo de T; b(d): factor que depende solo de d.</p>
 </section>
 
 <section class="slide" data-g="d" data-sec="4 · Curvas IDF">
@@ -864,6 +908,7 @@ ol.ruta{margin:0;padding-left:20px}
       <p class="note">Periodo de retorno = 1/(1 − F(x)) con la GEV de esa duración; el intervalo sale de las mismas réplicas bootstrap. Cuando el límite superior es «miles de años», el dato dice poco: el evento está en la cola que la muestra no alcanza a describir.</p>
     </div>
   </div>
+  <p class="note sym"><b>Símbolos.</b> x: lámina del evento (mm); F(x): probabilidad de no excedencia con la GEV de esa duración; T: periodo de retorno (años); IC 95 %: intervalo de confianza del 95 %.</p>
 </section>
 
 <section class="slide" data-g="e" data-sec="5 · Caso 1: alcantarilla">
@@ -882,6 +927,7 @@ ol.ruta{margin:0;padding-left:20px}
       <table class="ptab" id="tcTab"></table></div>
   </div>
   <p class="note">Kirpich (1940): t<sub>c</sub> = 0,0195 L<sup>0,77</sup> S<sup>−0,385</sup> (min, L en m). Témez (1978): t<sub>c</sub> = 0,3 (L/S<sup>0,25</sup>)<sup>0,76</sup> (h, L en km). SCS (retardo): t<sub>lag</sub> = L<sup>0,8</sup>(S′+1)<sup>0,7</sup>/(1900 Y<sup>0,5</sup>), t<sub>c</sub> = t<sub>lag</sub>/0,6 (h; L en pies, S′ = 1000/CN − 10, Y pendiente media de la cuenca en %; aquí se usa la del cauce). Onda cinemática en ladera más Kirpich en el cauce: 6,99 (n L<sub>o</sub>)<sup>0,6</sup>/(i<sup>0,4</sup> S<sup>0,3</sup>) (min; L<sub>o</sub> en m, i en mm/h, n de Manning de ladera = 0,24 para pasto), que depende de la intensidad y se itera con la IDF. Chow et al. (1988), tabla 15.1.2; Grimaldi et al. (2012).</p>
+  <p class="note sym"><b>Símbolos.</b> i(t<sub>c</sub>, T): intensidad de la IDF para la duración t<sub>c</sub> y el periodo de retorno T (aquí T = 49 años, de la diapositiva siguiente).</p>
 </section>
 
 <section class="slide" data-g="e" data-sec="5 · Caso 1: alcantarilla">
@@ -894,7 +940,7 @@ ol.ruta{margin:0;padding-left:20px}
       <div class="ctl"><label for="dsC">Coeficiente C</label><input id="dsC" type="range" min="0.1" max="0.95" step="0.01" value="0.39"><output id="dsCo"></output></div>
       <h3>Fórmula de t<sub>c</sub></h3><div class="chips" id="dsTc"></div>
       <div class="ctl"><label for="dsS0">Pendiente del tubo S<sub>0</sub></label><input id="dsS0" type="range" min="0.005" max="0.08" step="0.001" value="0.02"><output id="dsS0o"></output></div>
-      <div class="ctl"><label for="dsn">Manning n</label><input id="dsn" type="range" min="0.010" max="0.024" step="0.001" value="0.013"><output id="dsno"></output></div>
+      <div class="ctl"><label for="dsn">Manning n<sub>M</sub></label><input id="dsn" type="range" min="0.010" max="0.024" step="0.001" value="0.013"><output id="dsno"></output></div>
     </div>
     <div>
       <div class="readout" id="dsRd"></div>
@@ -903,16 +949,18 @@ ol.ruta{margin:0;padding-left:20px}
   </div>
   <div class="meth2">
     <div class="eq">Q<sub>p</sub> = C · i(t<sub>c</sub>, T) · A / 3,6 &nbsp;(m³/s; i en mm/h; A en km²)</div>
-    <div class="eq">D = [n Q / (0,312 S<sub>0</sub><sup>1/2</sup>)]<sup>3/8</sup> &nbsp;(tubo circular lleno; 0,312 = π/4 · 4<sup>−2/3</sup>)</div>
+    <div class="eq">D = [n<sub>M</sub> Q / (0,312 S<sub>0</sub><sup>1/2</sup>)]<sup>3/8</sup> &nbsp;(tubo circular lleno; 0,312 = π/4 · 4<sup>−2/3</sup>)</div>
   </div>
   <p class="note" id="dsNote"><b>C</b> (coeficiente de escorrentía): fracción de la intensidad de lluvia que llega como caudal pico; ≈ 0,1–0,3 en bosque, 0,3–0,5 en pastos, 0,7–0,95 en pavimentos y techos. C ponderado por área: bosque 40 % (0,20) + potrero 40 % (0,35) + vía y techos 20 % (0,85) = 0,39. En Chow et al. (tabla 15.1.1) C crece con T (asfalto: 0,73 con T = 2 y 0,95 con T = 100); un C fijo es una simplificación. Supuestos del método racional: lluvia uniforme en el espacio y el tiempo, duración igual a t<sub>c</sub>, mismo T para la lluvia y el caudal, C independiente de la humedad antecedente. Solo vale para cuencas pequeñas, sobre todo urbanas.</p>
+  <p class="note sym"><b>Símbolos.</b> n: vida útil (años); T: periodo de retorno (años); C: coeficiente de escorrentía; i(t<sub>c</sub>, T): intensidad de diseño (mm/h); A: área (km²); Q<sub>p</sub> = Q: caudal pico (m³/s); n<sub>M</sub>: coeficiente de Manning; S<sub>0</sub>: pendiente del tubo; D: diámetro (m); Q<sub>c</sub>: capacidad a tubo lleno del diámetro comercial; Q<sub>c</sub>/Q<sub>p</sub>: factor de seguridad.</p>
 </section>
 
 <section class="slide" data-g="e" data-sec="5 · Caso 1: alcantarilla">
   <p class="kicker k-e">5 · Caso 1 · Sensibilidad</p>
   <h2>¿Qué supuesto mueve más el diámetro?</h2>
   <svg id="tnSvg" viewBox="0 0 980 300" role="img" aria-label="Diagrama de tornado de sensibilidad del diámetro"></svg>
-  <p class="note">Diámetro teórico (antes de redondear) con los valores de la diapositiva anterior, cambiando un supuesto a la vez: las cuatro fórmulas de t<sub>c</sub>; C ± 20 %; los límites del intervalo bootstrap de la IDF; Gumbel y LP3 (L-momentos) o GEV por máxima verosimilitud en lugar de GEV por L-momentos; la extrapolación subhoraria con θ = 0; y Manning n entre 0,011 y 0,015. Si la base es la fórmula de t<sub>c</sub> más corta (Kirpich), la barra de t<sub>c</sub> solo puede bajar el diámetro. Ordenadas de mayor a menor efecto. Las líneas verticales marcan los diámetros comerciales: un cambio que no cruza una línea no cambia la obra.</p>
+  <p class="note">Diámetro teórico (antes de redondear) con los valores de la diapositiva anterior, cambiando un supuesto a la vez: las cuatro fórmulas de t<sub>c</sub>; C ± 20 %; los límites del intervalo bootstrap de la IDF; Gumbel y LP3 (L-momentos) o GEV por máxima verosimilitud en lugar de GEV por L-momentos; la extrapolación subhoraria con θ = 0; y Manning n<sub>M</sub> entre 0,011 y 0,015. Si la base es la fórmula de t<sub>c</sub> más corta (Kirpich), la barra de t<sub>c</sub> solo puede bajar el diámetro. Ordenadas de mayor a menor efecto. Las líneas verticales marcan los diámetros comerciales: un cambio que no cruza una línea no cambia la obra.</p>
+  <p class="note sym"><b>Símbolos.</b> D: diámetro teórico (m); t<sub>c</sub>: tiempo de concentración; C: coeficiente de escorrentía; n<sub>M</sub>: coeficiente de Manning; θ: parámetro de la IDF; IC 95 %: intervalo de confianza del 95 %.</p>
 </section>
 
 <section class="slide" data-g="e" data-sec="5 · Caso 1: alcantarilla">
@@ -924,8 +972,9 @@ ol.ruta{margin:0;padding-left:20px}
       <button class="chip" id="mcGo" aria-pressed="false">Otra muestra aleatoria</button>
       <div class="readout" id="mcRd"></div>
     </div>
-    <div><svg id="mcSvg" viewBox="0 0 640 320" role="img" aria-label="Distribución de la probabilidad anual de falla"></svg><p class="note">En cada iteración se toma una de 400 réplicas bootstrap de la GEV (incertidumbre de la IDF), C ~ N(C, 10 %), t<sub>c</sub> ~ lognormal alrededor del valor elegido (25 %), n ~ U(0,011; 0,015) y S<sub>0</sub> ~ N(S<sub>0</sub>, 10 %). Con el diámetro elegido se calcula la capacidad Q<sub>c</sub>, la intensidad que la iguala, i* = 3,6 Q<sub>c</sub>/(C A), y la probabilidad anual de que la intensidad de duración t<sub>c</sub> supere i*. El promedio es la probabilidad efectiva de falla. Dos efectos se oponen: redondear al diámetro comercial baja la probabilidad respecto a 1/T, y la incertidumbre la sube, porque la probabilidad de superación es convexa en la cola respecto al umbral incierto i*: E[1 − F(i*)] &gt; 1 − F(E[i*]) (desigualdad de Jensen; riesgo compuesto, Chow et al., 1988, secs. 13.4–13.5). El riesgo en la vida útil es E[1 − (1 − p)<sup>n</sup>], porque los parámetros no cambian de un año a otro.</p></div>
+    <div><svg id="mcSvg" viewBox="0 0 640 320" role="img" aria-label="Distribución de la probabilidad anual de falla"></svg><p class="note">En cada iteración se toma una de 400 réplicas bootstrap de la GEV (incertidumbre de la IDF), C ~ N(C, 10 %), t<sub>c</sub> ~ lognormal alrededor del valor elegido (25 %), n<sub>M</sub> ~ U(0,011; 0,015) y S<sub>0</sub> ~ N(S<sub>0</sub>, 10 %). Con el diámetro elegido se calcula la capacidad Q<sub>c</sub>, la intensidad que la iguala, i* = 3,6 Q<sub>c</sub>/(C A), y la probabilidad anual de que la intensidad de duración t<sub>c</sub> supere i*. El promedio es la probabilidad efectiva de falla. Dos efectos se oponen: redondear al diámetro comercial baja la probabilidad respecto a 1/T, y la incertidumbre la sube, porque la probabilidad de superación es convexa en la cola respecto al umbral incierto i*: E[1 − F(i*)] &gt; 1 − F(E[i*]) (desigualdad de Jensen; riesgo compuesto, Chow et al., 1988, secs. 13.4–13.5). El riesgo en la vida útil es E[1 − (1 − p)<sup>n</sup>], porque los parámetros no cambian de un año a otro.</p></div>
   </div>
+  <p class="note sym"><b>Símbolos.</b> p: probabilidad anual de falla; T: periodo de retorno; D: diámetro; n: vida útil (25 años); Q<sub>p</sub>, Q<sub>c</sub>: caudal pico y capacidad del tubo; i*: intensidad que llena el tubo; C, A: coeficiente de escorrentía y área; F: distribución de la intensidad de duración t<sub>c</sub>; N(m, 10 %): normal con media m y coeficiente de variación 10 %; U(a; b): uniforme entre a y b; n<sub>M</sub>: Manning; S<sub>0</sub>: pendiente; E[·]: valor esperado.</p>
 </section>
 
 <section class="slide" data-g="e" data-sec="5 · Caso 1: alcantarilla">
@@ -939,6 +988,7 @@ ol.ruta{margin:0;padding-left:20px}
     <div><svg id="scSvg" viewBox="0 0 640 300" role="img" aria-label="Factor de reducción areal y tiempo de concentración contra el área"></svg></div>
   </div>
   <p class="note">FRA de Leclerc y Schaake (1972): FRA = 1 − e<sup>−1,1 t<sup>0,25</sup></sup> + e<sup>−1,1 t<sup>0,25</sup> − 0,01 A</sup> (t en h, A en mi²). Longitud del cauce por la ley de Hack (1957), L ≈ 1,4 A<sup>0,6</sup> (mi), y Kirpich con S = 0,01. Franja verde: hasta ≈ 2,5 km², el rango usual del método racional. Con cientos de km², t<sub>c</sub> pasa de horas, la lluvia no es uniforme, el FRA cae y el almacenamiento en la red de cauces atenúa el pico: el método racional sobreestima mucho el caudal. Para cuencas medianas y grandes se usa un hidrograma unitario o un modelo distribuido.</p>
+  <p class="note sym"><b>Símbolos.</b> A: área de la cuenca (km² en el control; mi² en la fórmula); t: duración (h); FRA: factor de reducción areal; L: longitud del cauce; S: pendiente; t<sub>c</sub>: tiempo de concentración.</p>
 </section>
 
 <section class="slide" data-g="f" data-sec="6 · Caso 2: tanque de detención">
@@ -957,6 +1007,7 @@ ol.ruta{margin:0;padding-left:20px}
   </div>
   <p class="note">Usa T, A y t<sub>c</sub> del caso 1. Hidrogramas trapezoidales: suben en t<sub>c</sub> hasta C i(d, T) A/3,6, se mantienen d − t<sub>c</sub> y bajan en t<sub>c</sub> (Chow et al., 1988, sec. 15.4). Cada uno se transita por un tanque prismático (piscina nivelada, dS/dt = I − O(h), Euler explícito con Δt = 10 s) con un orificio O = C<sub>d</sub> A<sub>o</sub> √(2gh), dimensionado para que a la profundidad máxima salga el caudal de antes de urbanizar; el área del tanque se ajusta por bisección. La duración crítica es la que exige más volumen. Límites: Chow recomienda el racional modificado para áreas pequeñas (≈ 0,1 km²); toda la IDF bajo 60 min está extrapolada (diapositiva de la IDF) y con t<sub>c</sub> &lt; 10 min la extrapolación es extrema, y si h/D &lt; 2 el orificio trabaja como vertedero: en el diseño real use una curva de descarga o el método 2S/Δt + O (Chow, sec. 8.2).</p>
   <p class="note" id="tkWarn" style="color:var(--lw)"></p>
+  <p class="note sym"><b>Símbolos.</b> C: coeficiente de escorrentía; t<sub>c</sub>: tiempo de concentración; T, A: del caso 1; d: duración de la lluvia (min); i(d, T): intensidad de la IDF; S: volumen almacenado (m³); t: tiempo; I, O: caudal de entrada y de salida; h: nivel del agua; C<sub>d</sub> ≈ 0,6: coeficiente de descarga; A<sub>o</sub>: área del orificio; g = 9,81 m/s²; D: diámetro del orificio; Δt: paso de tiempo.</p>
 </section>
 
 <section class="slide" data-g="f" data-sec="6 · Caso 2: tanque de detención">
@@ -971,6 +1022,7 @@ ol.ruta{margin:0;padding-left:20px}
     <div><svg id="abSvg" viewBox="0 0 640 380" role="img" aria-label="Hietograma de bloques alternos e hidrogramas"></svg></div>
   </div>
   <p class="note">Bloques de 5 min con la lámina incremental de la IDF (Chow et al., 1988, sec. 14.4); Chow pone el bloque mayor al centro, inicio y final son variantes. La intensidad de 5 min está extrapolada (con θ = 0 sería ≈ 70 % mayor). Hidrograma por el método área–tiempo: Q(t) = C A ī<sub>tc</sub>(t)/3,6, con ī<sub>tc</sub> la intensidad media de los t<sub>c</sub> minutos anteriores; equivale a un diagrama tiempo–área lineal (cuenca rectangular). <span id="abNote"></span> La diferencia con el volumen de los trapecios muestra cuánto importa la forma del hietograma.</p>
+  <p class="note sym"><b>Símbolos.</b> Q(t): caudal en el tiempo t; C: coeficiente de escorrentía; A: área (km²); ī<sub>tc</sub>(t): intensidad media de los t<sub>c</sub> minutos anteriores a t; t<sub>c</sub>: tiempo de concentración.</p>
 </section>
 
 <section class="slide" data-g="i" data-sec="7 · ¿Y si cambia el clima?">
@@ -989,6 +1041,7 @@ ol.ruta{margin:0;padding-left:20px}
     <div class="callout">Milly et al. (2008): «la estacionariedad ha muerto». Con tendencia, la distribución cambia año a año: la lámina de diseño x<sub>T</sub> tiene probabilidad p<sub>t</sub> = 1 − F<sub>t</sub>(x<sub>T</sub>) creciente, y el riesgo en la vida útil es R = 1 − Π(1 − p<sub>t</sub>) (Salas y Obeysekera, 2014). El periodo de retorno ya no es un número fijo.</div>
     <div class="callout blue">Alternativa de diseño: el <b>nivel de diseño para la vida útil</b> (Rootzén y Katz, 2013): la lámina que mantiene el riesgo aceptado durante los años en que la obra va a existir, con la distribución que se espera en esos años. Aquí la tendencia se modela escalando toda la GEV de 1 h de Boswell por (1 + g)<sup>(t − 2016)/10</sup>. Ojo: g es un escenario hipotético, porque en Boswell los máximos de 1 h no muestran tendencia (Z = −0,14; pendiente de Sen = 0). Como referencia, 0,2 °C/década × 7 %/°C ≈ 1,4 %/década; 3 %/década ya es súper-CC. Tomar 2016 como referencia es optimista: si la tendencia existía, la GEV estacionaria representa el clima de mediados del registro (≈ 1984), y con esa referencia el riesgo en 50 años sube a ≈ 69 %.</div>
   </div>
+  <p class="note sym"><b>Símbolos.</b> x<sub>T</sub>: lámina de diseño estacionaria; t: año; F<sub>t</sub>: distribución de los máximos anuales en el año t; p<sub>t</sub>: probabilidad de superar x<sub>T</sub> ese año; Π: producto sobre los años de vida útil; R: riesgo; g: aumento de la lluvia extrema por década.</p>
 </section>
 <section class="slide" data-g="i" data-sec="7 · ¿Y si cambia el clima?">
   <p class="kicker k-hur">7 · ¿Y si cambia el clima? · La física: Clausius–Clapeyron</p>
@@ -1039,6 +1092,7 @@ ol.ruta{margin:0;padding-left:20px}
     <div><svg id="ccSvg" viewBox="0 0 640 300" role="img" aria-label="Periodo de retorno efectivo de la obra actual con calentamiento"></svg></div>
   </div>
   <p class="note">Clausius–Clapeyron: el vapor de saturación crece ≈ 7 % por °C, y las intensidades horarias extremas escalan parecido o más en convección (Westra et al., 2014). La alternativa estadística es una GEV con parámetro de posición que varía con el tiempo o la temperatura, ajustada por máxima verosimilitud. En esta estación los máximos de 6–24 h muestran indicios de aumento (diapositiva de estacionariedad).</p>
+  <p class="note sym"><b>Símbolos.</b> ΔT: calentamiento (°C); r: escalamiento de la intensidad por °C; factor de intensidad = (1 + r)<sup>ΔT</sup>; T efectivo: periodo de retorno que tendría la lámina de diseño actual en el clima más caliente; D: diámetro.</p>
 </section>
 
 <section class="slide" data-g="i" data-sec="7 · ¿Y si cambia el clima?">
@@ -1056,6 +1110,7 @@ ol.ruta{margin:0;padding-left:20px}
     <div class="callout blue"><b>Lo que recomienda la literatura</b>: combinar el análisis de los datos (enfoques 1–2) con un factor físico o de escenario (3–5), reportar el rango y no un solo número, y preferir medidas «sin arrepentimiento»: un tubo un diámetro más grande cuesta poco frente a la falla (Martel et al., 2021). Las guías actuales no distinguen duración ni frecuencia, y pueden subestimar el aumento en duraciones subhorarias y T largos (Martel et al., 2021).</div>
     <div class="callout amber"><b>Decidir con incertidumbre</b>: en vez de predecir el clima, preguntar con qué cambio falla la obra (escalamiento de decisión, Brown et al., 2012), dejar espacio para ampliarla (diseño adaptable) y revisar la decisión cuando haya datos nuevos.</div>
   </div>
+  <p class="note sym"><b>Símbolos.</b> μ(t), σ(t): posición y escala de la GEV que cambian con el tiempo t; r: tasa de aumento de la intensidad por °C; ΔT: calentamiento esperado al horizonte de la obra; T: periodo de retorno.</p>
 </section>
 <section class="slide" data-g="g" data-sec="8 · Temas avanzados">
   <p class="kicker k-lw">8 · Temas avanzados · Costo mínimo esperado</p>
@@ -1069,6 +1124,7 @@ ol.ruta{margin:0;padding-left:20px}
     <div><svg id="coSvg" viewBox="0 0 640 330" role="img" aria-label="Costo anual total contra periodo de retorno"></svg></div>
   </div>
   <p class="note">Con funciones de costo adimensionales (en múltiplos de C<sub>0</sub>, el costo de la obra para T = 2): C<sub>obra</sub> = C<sub>0</sub>(Q<sub>d</sub>/Q<sub>2</sub>)<sup>0,6</sup>, anualizado con FRC = r(1+r)<sup>n</sup>/[(1+r)<sup>n</sup> − 1]; daño D(Q) = D<sub>max</sub>[1 − e<sup>−(Q − Q<sub>d</sub>)/(0,5 Q<sub>d</sub>)</sup>] si Q &gt; Q<sub>d</sub>; DAE = ∫ D(p) dp. Q(p) sale de la IDF en t<sub>c</sub> y la microcuenca del caso 1. Compare el T óptimo con el T elegido por riesgo. El daño anual esperado se integra hasta p = 10<sup>−6</sup> extrapolando la GEV (ξ ≈ 0,2): pruebe la sensibilidad a ese corte.</p>
+  <p class="note sym"><b>Símbolos.</b> C₀: costo de la obra para T = 2; Q<sub>d</sub>: caudal de diseño (para el T elegido); Q₂: caudal de T = 2 años; r: tasa de descuento; n: vida útil (25 años); FRC: factor de recuperación de capital; Q: caudal de una creciente; D(Q): daño que causa; D<sub>max</sub>: daño máximo; p: probabilidad anual de excedencia de Q; DAE: daño anual esperado.</p>
 </section>
 
 <section class="slide" data-g="g" data-sec="8 · Temas avanzados">
@@ -1085,6 +1141,7 @@ ol.ruta{margin:0;padding-left:20px}
       <div class="eq">Langbein: T<sub>anual</sub> = 1 / [1 − exp(−1/T<sub>parcial</sub>)]; T<sub>parcial</sub> = 10 da T<sub>anual</sub> = 10,5.</div>
     </div>
   </div>
+  <p class="note sym"><b>Símbolos.</b> u: umbral (mm); λ: picos por año; ξ, σ: forma y escala de la GPD; σ* = σ − ξu: escala modificada, que no depende de u si la GPD es adecuada; x<sub>T</sub>: cuantil de T años; T<sub>parcial</sub>, T<sub>anual</sub>: periodo de retorno en la serie de picos y en la anual.</p>
 </section>
 <section class="slide" data-g="g" data-sec="8 · Temas avanzados">
   <p class="kicker k-lw">8 · Temas avanzados · Desempeño y cópulas</p>
@@ -1094,13 +1151,14 @@ ol.ruta{margin:0;padding-left:20px}
       <h3>Confiabilidad, resiliencia y vulnerabilidad (Hashimoto et al., 1982)</h3>
       <div id="rvRd"></div>
       <p class="note" style="margin-top:8px">La serie horaria válida se convierte en caudal con el racional (C, A del caso 1) y se compara con la capacidad Q<sub>c</sub> del diámetro elegido; la intensidad horaria se lleva a la duración t<sub>c</sub> con el factor de la IDF. Falla: Q &gt; Q<sub>c</sub>. Confiabilidad = 1 − fracción de horas en falla; resiliencia = 1/duración media de una falla; vulnerabilidad = exceso medio en las fallas. Con datos horarios, una microcuenca con t<sub>c</sub> de minutos queda mal resuelta: es una aproximación.</p>
+      <p class="note sym"><b>Símbolos.</b> D: diámetro; Q, Q<sub>c</sub>: caudal horario y capacidad del tubo; P, d: lámina y duración de la tormenta (P/d: intensidad media); u, v: probabilidades marginales de no excedencia; C(u, v): cópula de Frank, de parámetro θ; τ: de Kendall; μ: tiempo medio entre tormentas; T«o», T«y»: periodo de retorno de que se supere una u otra, o las dos.</p>
     </div>
     <div>
       <h3>Intensidad media y duración de las tormentas</h3>
       <svg id="cpSc" viewBox="0 0 520 260" role="img" aria-label="Intensidad y duración de las tormentas"></svg>
       <div class="ctl"><label for="cpT">Periodo de retorno de cada variable (años)</label><input id="cpT" type="range" min="0.3" max="2" step="0.01" value="0.3"><output id="cpTo"></output></div>
       <div class="readout" id="cpRd"></div>
-      <p class="note">Una <b>cópula</b> describe la dependencia entre dos variables por separado de sus distribuciones marginales; con ella se calcula la probabilidad de que ocurran juntas. El τ de Kendall mide esa dependencia por rangos (−1 a 1). Tormentas separadas por 6 h secas, con al menos 12,7 mm. τ negativo: las largas son menos intensas. Ojo: la intensidad media es P/D, así que parte de esa dependencia negativa es espuria (D está en el denominador); es más robusto modelar lámina y duración. Cópula de Frank (admite dependencia negativa), θ desde τ; T<sub>«o»</sub> = μ/[1 − C(u,v)] y T<sub>«y»</sub> = μ/[1 − u − v + C(u,v)], con μ el tiempo medio entre tormentas (Salvadori y De Michele, 2004).</p>
+      <p class="note">Una <b>cópula</b> describe la dependencia entre dos variables por separado de sus distribuciones marginales; con ella se calcula la probabilidad de que ocurran juntas. El τ de Kendall mide esa dependencia por rangos (−1 a 1). Tormentas separadas por 6 h secas, con al menos 12,7 mm. τ negativo: las largas son menos intensas. Ojo: la intensidad media es P/d, así que parte de esa dependencia negativa es espuria (d está en el denominador); es más robusto modelar lámina y duración. Cópula de Frank (admite dependencia negativa), θ desde τ; T<sub>«o»</sub> = μ/[1 − C(u,v)] y T<sub>«y»</sub> = μ/[1 − u − v + C(u,v)], con μ el tiempo medio entre tormentas (Salvadori y De Michele, 2004).</p>
     </div>
   </div>
 </section>
@@ -1231,15 +1289,16 @@ function go(i){
   $('#secLabel').innerHTML='<b>'+slides[cur].dataset.sec+'</b>';
   $('#prev').disabled=cur===0; $('#next').disabled=cur===slides.length-1;
   main.scrollTop=0; fitSlide();
-  const sl=slides[cur]; if(sl._onShow) setTimeout(()=>{ if(sl.classList.contains('on')) safe('show',sl._onShow); },20);
+  const sl=slides[cur]; if(sl._onShow) setTimeout(()=>{ if(sl.classList.contains('on')) safe('show',sl._onShow); fitSlide(); },20);
+  setTimeout(fitSlide,120);
   try{history.replaceState(null,'','#s'+(cur+1));}catch(e){}
 }
 function fitSlide(){
   const sl=slides[cur]; sl.style.zoom='';
   if(window.innerWidth<900) return;
-  const avail=main.clientHeight, need=sl.offsetHeight;
-  if(need>avail+4){ let z=Math.max(0.6,(avail-2)/need); sl.style.zoom=z.toFixed(3);
-    for(let k=0;k<4;k++){ const got=sl.offsetHeight*z; if(got<=avail+2||z<=0.6) break; z=Math.max(0.6,z*(avail-2)/got); sl.style.zoom=z.toFixed(3);} }
+  const avail=main.clientHeight, need=Math.max(sl.offsetHeight,sl.scrollHeight);
+  if(need>avail+4){ let z=Math.max(0.55,(avail-2)/need); sl.style.zoom=z.toFixed(3);
+    for(let k=0;k<4;k++){ const got=Math.max(sl.offsetHeight,sl.scrollHeight)*z; if(got<=avail+2||z<=0.55) break; z=Math.max(0.55,z*(avail-2)/got); sl.style.zoom=z.toFixed(3);} }
 }
 let fitT; window.addEventListener('resize',()=>{clearTimeout(fitT);fitT=setTimeout(fitSlide,150);});
 $('#prev').onclick=()=>go(cur-1); $('#next').onclick=()=>go(cur+1);
@@ -1360,6 +1419,58 @@ safe('riesgo',()=>{
 });
 
 let mcRun=0;
+/* ═════════ 1 · Árbol de fallas ═════════ */
+safe('arbol',()=>{
+  let n=2,ev='all',step=99;
+  const sup=k=>String(k).split('').map(c=>'⁰¹²³⁴⁵⁶⁷⁸⁹'[c]).join('');
+  const C=(n,k)=>{let r=1;for(let i=1;i<=k;i++)r=r*(n-k+i)/i;return r};
+  const pf=x=>fmt(x,x<0.001?5:4).replace(/0+$/,'').replace(/,$/,'');
+  const EV=()=>[['all',n===1?'Falla ese año':n===2?'Falla los dos años':'Falla los '+n+' años',k=>k===n],['one','Exactamente una',k=>k===1],['atl','Al menos una',k=>k>=1],['none','Ninguna',k=>k===0]];
+  const NS='http://www.w3.org/2000/svg';
+  const mk=(t,a,p,txt)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(txt!=null)e.textContent=txt;p.appendChild(e);return e};
+  const say=S=>S===1?'<b>Año 1:</b> dos ramas, F con p y N con 1 − p; suman 1.':S<=n?`<b>Año ${S}:</b> de cada rama salen otra vez F y N con las mismas probabilidades; ya hay ${2**S} futuros.`:S===n+1?'<b>Multiplicar:</b> cada futuro vale el producto de su camino (años independientes).':'<b>Sumar:</b> el evento reúne varias hojas; su probabilidad es la suma.';
+  const draw=()=>{
+    const T=+$('#trT').value,p=1/T,q=1-p; $('#trTo').textContent=fmt(T);
+    const E=EV().find(e=>e[0]===ev), S=Math.min(step,n+2), depth=Math.min(S,n), prod=S>=n+1, sum=S>=n+2;
+    const L=2**n,rowH=n===4?28:n===3?36:48,top=26,colW=n===4?105:n===3?130:150,x0=16,xL=x0+n*colW,lw=n===4?230:200,W=xL+lw,H=top+L*rowH+6;
+    const svg=$('#trSvg');svg.innerHTML='';svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
+    for(let d=1;d<=n;d++)mk('text',{x:x0+d*colW-colW/2,y:13,'text-anchor':'middle','font-size':11,style:'fill:var(--muted);letter-spacing:.06em'},svg,'AÑO '+d);
+    const yOf=s=>{const sp=2**(n-s.length);let i=0;for(const c of s)i=i*2+(c==='F'?0:1);return top+(i*sp+sp/2)*rowH};
+    const leafs=[];(function r(s){if(s.length===n){leafs.push(s);return}r(s+'F');r(s+'N')})('');
+    const kOf=s=>[...s].filter(c=>c==='F').length, inE=s=>E[2](kOf(s));
+    const col=c=>c==='F'?'var(--lw)':'var(--cool)';
+    (function r(s){ if(s.length>=depth)return;
+      for(const c of ['F','N']){const t=s+c,x1=x0+s.length*colW,y1=yOf(s),x2=x0+t.length*colW,y2=yOf(t);
+        const hit=!sum||leafs.some(l=>l.startsWith(t)&&inE(l));
+        mk('path',{d:`M${x1},${y1} C${x1+colW*.45},${y1} ${x2-colW*.45},${y2} ${x2},${y2}`,style:`fill:none;stroke:${col(c)};stroke-width:${sum&&hit?3.2:2};opacity:${hit?1:.2}`},svg);
+        mk('text',{x:(x1+x2)/2,y:(y1+y2)/2+(c==='F'?-8:15),'text-anchor':'middle','font-size':11,style:`fill:${col(c)};opacity:${hit?1:.25};paint-order:stroke;stroke:var(--panel);stroke-width:4px;font-family:var(--f-mono,monospace)`},svg,c+' '+pf(c==='F'?p:q));
+        r(t);}})('');
+    (function r(s){mk('circle',{cx:x0+s.length*colW,cy:yOf(s),r:s.length?4:5.5,style:'fill:var(--panel);stroke:var(--muted);stroke-width:1.5'},svg);if(s.length<depth){r(s+'F');r(s+'N')}})('');
+    let tot=0,val=0;const terms=[];
+    if(depth===n) leafs.forEach(s=>{const k=kOf(s),v=p**k*q**(n-k),on=inE(s);tot+=v;if(on){val+=v;terms.push(v)}
+      const y=yOf(s),op=sum&&!on?.25:1;
+      mk('rect',{x:xL+8,y:y-rowH/2+2,width:lw-10,height:rowH-4,rx:5,style:`fill:${sum&&on?'color-mix(in srgb,var(--cool) 16%,transparent)':'transparent'}`},svg);
+      const tx=mk('text',{x:xL+14,y:y+4,'font-size':12.5,style:`opacity:${op};font-weight:600;font-family:var(--f-mono,monospace)`},svg);
+      [...s].forEach(c=>mk('tspan',{style:'fill:'+col(c)},tx,c));
+      if(prod){mk('text',{x:xL+20+n*9,y:y+4,'font-size':11,style:`fill:var(--muted);opacity:${op};font-family:var(--f-mono,monospace)`},svg,k===0?pf(q)+sup(n):k===n?pf(p)+sup(n):pf(p)+(k>1?sup(k):'')+'·'+pf(q)+(n-k>1?sup(n-k):''));
+        mk('text',{x:W-6,y:y+4,'text-anchor':'end','font-size':12.5,style:`fill:var(--fg);opacity:${op};font-family:var(--f-mono,monospace)`},svg,pf(v));}
+    });
+    let ex=0;for(let k=0;k<=n;k++)if(E[2](k))ex+=C(n,k)*p**k*q**(n-k);
+    $('#trP').textContent=sum?fmt(ex*100,ex<0.01?2:1)+' %':'—';
+    $('#trS').textContent=depth===n?`Comprobación: las ${L} hojas suman ${pf(tot)}.`:'';
+    const sc={all:`p${sup(n)} = ${pf(p**n)}`,none:`(1 − p)${sup(n)} = ${pf(q**n)}`,atl:`1 − (1 − p)${sup(n)} = ${pf(1-q**n)}`,one:`C(${n},1)·p·(1 − p)${n>2?sup(n-1):''} = ${pf(n*p*q**(n-1))}`}[ev];
+    $('#trSum').innerHTML=sum?(terms.length<=4?`${terms.map(pf).join(' + ')} = <b>${pf(ex)}</b>. `:`Suma de ${terms.length} hojas = <b>${pf(ex)}</b>. `)+`Fórmula: ${sc}.`:'';
+    $('#trSay').innerHTML=say(S);
+    $('#trStart').disabled=$('#trPrev').disabled=S<=1; $('#trNext').disabled=$('#trAll').disabled=S>=n+2;
+    chips('#trE',EV().map(e=>[e[0],e[1]]),ev,v=>{ev=v;draw();});
+  };
+  chips('#trN',[[1,'1'],[2,'2'],[3,'3'],[4,'4']],2,v=>{n=v;step=99;draw();});
+  $('#trT').addEventListener('input',draw);
+  $('#trStart').onclick=()=>{step=1;draw()}; $('#trPrev').onclick=()=>{step=Math.max(1,Math.min(step,n+2)-1);draw()};
+  $('#trNext').onclick=()=>{step=Math.min(n+2,Math.min(step,n+2)+1);draw()}; $('#trAll').onclick=()=>{step=99;draw()};
+  draw(); onShow('trSvg',draw);
+});
+
 /* ═════════ 1 · Pasado y futuro ═════════ */
 safe('pf',()=>{
   const ys=D.valid_years, a=D.res[1].ams; let seed=7;
@@ -1659,7 +1770,7 @@ safe('tn',()=>{
       ['Distribución (Gumbel / LP3)',Math.min(Dof({idf:{dist:'gum'}}),Dof({idf:{dist:'lp3'}})),Math.max(Dof({idf:{dist:'gum'}}),Dof({idf:{dist:'lp3'}}))],
       ['Método (GEV por máx. verosimilitud)',Math.min(base.Dt,Dof({idf:{dist:'gevmle'}})),Math.max(base.Dt,Dof({idf:{dist:'gevmle'}}))],
       ['Extrapolación subhoraria (θ = 0)',Math.min(base.Dt,Dof({idf:{th:0,eta:IDF.eta0}})),Math.max(base.Dt,Dof({idf:{th:0,eta:IDF.eta0}}))],
-      ['Manning n 0,011–0,015',Dof({nm:0.011}),Dof({nm:0.015})],
+      ['n de Manning 0,011–0,015',Dof({nm:0.011}),Dof({nm:0.015})],
     ].map(([n,a,b])=>[n,Math.min(a,b),Math.max(a,b)]).sort((p,q)=>(q[2]-q[1])-(p[2]-p[1]));
     const lo=Math.min(...items.map(i=>i[1]),base.Dt)*0.85, hi=Math.max(...items.map(i=>i[2]),base.Dt)*1.08;
     const c=chart($('#tnSvg'),{x:{min:lo,max:hi,dec:2,label:'diámetro teórico (m)'},y:{min:0,max:items.length,ticks:[]},m:{l:230,t:24,b:44}});
@@ -1954,7 +2065,7 @@ safe('ur',()=>{
 safe('sy',()=>{
   const draw=()=>{
     const d=design(), lo=design({idf:{q1:q1Boot(d.T,0.025)}}), hi=design({idf:{q1:q1Boot(d.T,0.975)}});
-    $('#syRd').innerHTML=`<h3>Recomendación (ejemplo)</h3><p>Alcantarilla de <b>${fmt(d.Dc,2)} m</b> en concreto (n = ${fmt(S.nm,3)}, S<sub>0</sub> = ${fmt(S.S0,3)}) para T = <b>${fmt(d.T,0)} años</b> (vida útil ${S.n} años, riesgo ${fmt(S.R*100)} %).</p>
+    $('#syRd').innerHTML=`<h3>Recomendación (ejemplo)</h3><p>Alcantarilla de <b>${fmt(d.Dc,2)} m</b> en concreto (n de Manning = ${fmt(S.nm,3)}, S<sub>0</sub> = ${fmt(S.S0,3)}) para T = <b>${fmt(d.T,0)} años</b> (vida útil ${S.n} años, riesgo ${fmt(S.R*100)} %).</p>
     <p>Lluvia de diseño: i(${fmt(d.tc,0)} min) = <b>${fmt(d.i,0)} mm/h</b>, IC 95 % ${fmt(lo.i,0)}–${fmt(hi.i,0)} mm/h (solo la incertidumbre muestral de la GEV de 1 h); Q<sub>p</sub> = ${fmt(d.Qp,2)} m³/s (${fmt(lo.Qp,2)}–${fmt(hi.Qp,2)}); diámetro teórico ${fmt(lo.Dt,2)}–${fmt(hi.Dt,2)} m.</p>
     <p class="note">Supuestos: GEV por L-momentos con 33 años válidos; IDF extrapolada bajo 60 min con θ = ${fmt(TH,1)} min y η = ${fmt(ETA,3)}; t<sub>c</sub> de ${TCN[S.tcK]}; C = ${fmt(S.C,2)}; clima estacionario. La mayor fuente de incertidumbre se lee en el tornado; el riesgo efectivo, en el Monte Carlo.</p>`;
   };
