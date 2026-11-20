@@ -143,8 +143,8 @@ export const courses: Course[] = [
             kind: "interactive",
             title: { en: "Hydrological design with IDF curves", es: "Diseño hidrológico con IDF" },
             description: {
-              en: "Interactive lecture (39 slides, in Spanish): risk and return periods, frequency analysis, IDF curves, culvert and detention-tank design, climate change and advanced topics, with a real 57-year hourly rain series. The last slide maps each part of Assignment 2, point 2, to the material.",
-              es: "Clase interactiva (39 diapositivas): riesgo y periodo de retorno, análisis de frecuencia, curvas IDF, diseño de una alcantarilla y un tanque de detención, cambio climático y temas avanzados, con una serie horaria real de 57 años. La última diapositiva ubica cada parte del punto 2 de la Tarea 2 en el material.",
+              en: "Interactive lecture (40 slides, in Spanish): risk and return periods (with a failure tree and the binomial distribution), frequency analysis, IDF curves, culvert and detention-tank design, climate change and advanced topics, with a real 57-year hourly rain series. The last slide maps each part of Assignment 2, point 2, to the material.",
+              es: "Clase interactiva (40 diapositivas): riesgo y periodo de retorno (con un árbol de fallas y la distribución binomial), análisis de frecuencia, curvas IDF, diseño de una alcantarilla y un tanque de detención, cambio climático y temas avanzados, con una serie horaria real de 57 años. La última diapositiva ubica cada parte del punto 2 de la Tarea 2 en el material.",
             },
             href: "/cursos/hidrologia/diseno-hidrologico-idf.html",
           },
